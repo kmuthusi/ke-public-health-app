@@ -729,6 +729,35 @@ def choose_diverse_supplemental_alerts(alerts: list[dict], selected: list[dict],
     return result[:limit]
 
 
+def choose_national_picture_alerts(alerts: list[dict], location_matched_alerts: list[dict], limit: int = 12) -> list[dict]:
+    seen = {(item.get("title"), item.get("url"), item.get("sourceFamily")) for item in location_matched_alerts}
+    result = []
+    represented_families = set()
+
+    for alert in alerts:
+        key = (alert.get("title"), alert.get("url"), alert.get("sourceFamily"))
+        family = alert.get("sourceFamily")
+        if key in seen:
+            continue
+        if family not in represented_families:
+            result.append(alert)
+            represented_families.add(family)
+            seen.add(key)
+        if len(result) >= limit:
+            return result[:limit]
+
+    for alert in alerts:
+        key = (alert.get("title"), alert.get("url"), alert.get("sourceFamily"))
+        if key in seen:
+            continue
+        result.append(alert)
+        seen.add(key)
+        if len(result) >= limit:
+            break
+
+    return result[:limit]
+
+
 def search_facilities(county: str, query: str | None = None):
     errors = []
     for base_url in KMHFR_CANDIDATE_URLS:
@@ -1161,6 +1190,11 @@ def build_live_payload(county: str, sub_county: str, ward: str):
         location_matched_alerts,
         limit=16,
     )
+    national_alerts = choose_national_picture_alerts(
+        deduped_alerts,
+        location_matched_alerts,
+        limit=12,
+    )
 
     guidance = build_local_guidance(location, location_matched_alerts, filtered_alerts)
     risk = build_risk_summary(location, filtered_alerts, facilities)
@@ -1171,6 +1205,8 @@ def build_live_payload(county: str, sub_county: str, ward: str):
         "mapCenter": geocode,
         "risk": risk,
         "alerts": filtered_alerts[:16],
+        "locationMatchedAlerts": location_matched_alerts[:16],
+        "nationalAlerts": national_alerts,
         "locationMatchedAlertCount": len(location_matched_alerts),
         "guidance": guidance,
         "facilities": facilities,
@@ -1253,7 +1289,12 @@ class AppHandler(SimpleHTTPRequestHandler):
 def main():
     server = ThreadingHTTPServer(("127.0.0.1", PORT), AppHandler)
     print(f"Serving Kenya public health app at http://127.0.0.1:{PORT}")
-    server.serve_forever()
+    try:
+      server.serve_forever()
+    except KeyboardInterrupt:
+      print("\nShutting down Kenya public health app server...")
+    finally:
+      server.server_close()
 
 
 if __name__ == "__main__":

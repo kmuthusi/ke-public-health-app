@@ -43,7 +43,7 @@
         },
         {
           "name": "Baringo North",
-          "matchedWardCount": 5,
+          "matchedWardCount": 9,
           "wards": [
             {
               "id": "792",
@@ -56,30 +56,14 @@
               "constituencyName": "Baringo  North"
             },
             {
-              "id": "789",
-              "name": "Kabartonjo",
-              "constituencyName": "Baringo  North"
-            },
-            {
-              "id": "790",
-              "name": "Saimo/Kipsaraman",
-              "constituencyName": "Baringo  North"
-            },
-            {
-              "id": "791",
-              "name": "Saimo/Soi",
-              "constituencyName": "Baringo  North"
-            }
-          ]
-        },
-        {
-          "name": "Baringo South",
-          "matchedWardCount": 4,
-          "wards": [
-            {
               "id": "799",
               "name": "Ilchamus",
               "constituencyName": "Baringo South"
+            },
+            {
+              "id": "789",
+              "name": "Kabartonjo",
+              "constituencyName": "Baringo  North"
             },
             {
               "id": "798",
@@ -95,6 +79,67 @@
               "id": "801",
               "name": "Mukutani",
               "constituencyName": "Baringo South"
+            },
+            {
+              "id": "790",
+              "name": "Saimo/Kipsaraman",
+              "constituencyName": "Baringo  North"
+            },
+            {
+              "id": "791",
+              "name": "Saimo/Soi",
+              "constituencyName": "Baringo  North"
+            }
+          ]
+        },
+        {
+          "name": "Baringo South",
+          "matchedWardCount": 9,
+          "wards": [
+            {
+              "id": "792",
+              "name": "Bartabwa",
+              "constituencyName": "Baringo  North"
+            },
+            {
+              "id": "788",
+              "name": "Barwessa",
+              "constituencyName": "Baringo  North"
+            },
+            {
+              "id": "799",
+              "name": "Ilchamus",
+              "constituencyName": "Baringo South"
+            },
+            {
+              "id": "789",
+              "name": "Kabartonjo",
+              "constituencyName": "Baringo  North"
+            },
+            {
+              "id": "798",
+              "name": "Marigat",
+              "constituencyName": "Baringo South"
+            },
+            {
+              "id": "800",
+              "name": "Mochongoi",
+              "constituencyName": "Baringo South"
+            },
+            {
+              "id": "801",
+              "name": "Mukutani",
+              "constituencyName": "Baringo South"
+            },
+            {
+              "id": "790",
+              "name": "Saimo/Kipsaraman",
+              "constituencyName": "Baringo  North"
+            },
+            {
+              "id": "791",
+              "name": "Saimo/Soi",
+              "constituencyName": "Baringo  North"
             }
           ]
         },
@@ -785,8 +830,39 @@
         },
         {
           "name": "Mt Elgon",
-          "matchedWardCount": 0,
-          "wards": []
+          "matchedWardCount": 6,
+          "wards": [
+            {
+              "id": "1076",
+              "name": "Cheptais",
+              "constituencyName": "Mt.Elgon"
+            },
+            {
+              "id": "1078",
+              "name": "Chepyuk",
+              "constituencyName": "Mt.Elgon"
+            },
+            {
+              "id": "1077",
+              "name": "Chesikaki",
+              "constituencyName": "Mt.Elgon"
+            },
+            {
+              "id": "1081",
+              "name": "Elgon",
+              "constituencyName": "Mt.Elgon"
+            },
+            {
+              "id": "1079",
+              "name": "Kapkateny",
+              "constituencyName": "Mt.Elgon"
+            },
+            {
+              "id": "1080",
+              "name": "Kaptama",
+              "constituencyName": "Mt.Elgon"
+            }
+          ]
         },
         {
           "name": "Sirisia",
@@ -847,28 +923,7 @@
         },
         {
           "name": "Webuye East",
-          "matchedWardCount": 3,
-          "wards": [
-            {
-              "id": "1106",
-              "name": "Maraka",
-              "constituencyName": "Webuye East"
-            },
-            {
-              "id": "1104",
-              "name": "Mihuu",
-              "constituencyName": "Webuye East"
-            },
-            {
-              "id": "1105",
-              "name": "Ndivisi",
-              "constituencyName": "Webuye East"
-            }
-          ]
-        },
-        {
-          "name": "Webuye West",
-          "matchedWardCount": 4,
+          "matchedWardCount": 7,
           "wards": [
             {
               "id": "1110",
@@ -876,14 +931,70 @@
               "constituencyName": "Webuye West"
             },
             {
+              "id": "1106",
+              "name": "Maraka",
+              "constituencyName": "Webuye East"
+            },
+            {
               "id": "1109",
               "name": "Matulo",
               "constituencyName": "Webuye West"
             },
             {
+              "id": "1104",
+              "name": "Mihuu",
+              "constituencyName": "Webuye East"
+            },
+            {
               "id": "1107",
               "name": "Misikhu",
               "constituencyName": "Webuye West"
+            },
+            {
+              "id": "1105",
+              "name": "Ndivisi",
+              "constituencyName": "Webuye East"
+            },
+            {
+              "id": "1108",
+              "name": "Sitikho",
+              "constituencyName": "Webuye West"
+            }
+          ]
+        },
+        {
+          "name": "Webuye West",
+          "matchedWardCount": 7,
+          "wards": [
+            {
+              "id": "1110",
+              "name": "Bokoli",
+              "constituencyName": "Webuye West"
+            },
+            {
+              "id": "1106",
+              "name": "Maraka",
+              "constituencyName": "Webuye East"
+            },
+            {
+              "id": "1109",
+              "name": "Matulo",
+              "constituencyName": "Webuye West"
+            },
+            {
+              "id": "1104",
+              "name": "Mihuu",
+              "constituencyName": "Webuye East"
+            },
+            {
+              "id": "1107",
+              "name": "Misikhu",
+              "constituencyName": "Webuye West"
+            },
+            {
+              "id": "1105",
+              "name": "Ndivisi",
+              "constituencyName": "Webuye East"
             },
             {
               "id": "1108",
@@ -1216,8 +1327,29 @@
         },
         {
           "name": "Nambele",
-          "matchedWardCount": 0,
-          "wards": []
+          "matchedWardCount": 4,
+          "wards": [
+            {
+              "id": "1136",
+              "name": "Bukhayo Central",
+              "constituencyName": "Nambale"
+            },
+            {
+              "id": "1135",
+              "name": "Bukhayo East",
+              "constituencyName": "Nambale"
+            },
+            {
+              "id": "1134",
+              "name": "Bukhayo North/Waltsi",
+              "constituencyName": "Nambale"
+            },
+            {
+              "id": "1133",
+              "name": "Nambale Township",
+              "constituencyName": "Nambale"
+            }
+          ]
         },
         {
           "name": "Teso North",
@@ -1477,26 +1609,281 @@
       "subCounties": [
         {
           "name": "Keiyo North",
-          "matchedWardCount": 0,
-          "wards": []
+          "matchedWardCount": 4,
+          "wards": [
+            {
+              "id": "741",
+              "name": "Emsoo",
+              "constituencyName": "Keiyo North"
+            },
+            {
+              "id": "742",
+              "name": "Kamariny",
+              "constituencyName": "Keiyo North"
+            },
+            {
+              "id": "743",
+              "name": "Kapchemutwa",
+              "constituencyName": "Keiyo North"
+            },
+            {
+              "id": "744",
+              "name": "Tambach",
+              "constituencyName": "Keiyo North"
+            }
+          ]
         },
         {
           "name": "Keiyo South",
-          "matchedWardCount": 0,
-          "wards": []
+          "matchedWardCount": 6,
+          "wards": [
+            {
+              "id": "746",
+              "name": "Chepkorio",
+              "constituencyName": "Keiyo South"
+            },
+            {
+              "id": "749",
+              "name": "Kabiemit",
+              "constituencyName": "Keiyo South"
+            },
+            {
+              "id": "745",
+              "name": "Kaptarakwa",
+              "constituencyName": "Keiyo South"
+            },
+            {
+              "id": "750",
+              "name": "Metkei",
+              "constituencyName": "Keiyo South"
+            },
+            {
+              "id": "747",
+              "name": "Soy North",
+              "constituencyName": "Keiyo South"
+            },
+            {
+              "id": "748",
+              "name": "Soy South",
+              "constituencyName": "Keiyo South"
+            }
+          ]
         },
         {
           "name": "Marakwet East",
-          "matchedWardCount": 0,
-          "wards": []
+          "matchedWardCount": 10,
+          "wards": [
+            {
+              "id": "740",
+              "name": "Arror",
+              "constituencyName": "Marakwet West"
+            },
+            {
+              "id": "737",
+              "name": "Cherang'Any/Chebororwa",
+              "constituencyName": "Marakwet West"
+            },
+            {
+              "id": "734",
+              "name": "Embobut / Embulot",
+              "constituencyName": "Marakwet East"
+            },
+            {
+              "id": "733",
+              "name": "Endo",
+              "constituencyName": "Marakwet East"
+            },
+            {
+              "id": "739",
+              "name": "Kapsowar",
+              "constituencyName": "Marakwet West"
+            },
+            {
+              "id": "731",
+              "name": "Kapyego",
+              "constituencyName": "Marakwet East"
+            },
+            {
+              "id": "735",
+              "name": "Lelan",
+              "constituencyName": "Marakwet West"
+            },
+            {
+              "id": "738",
+              "name": "Moiben/Kuserwo",
+              "constituencyName": "Marakwet West"
+            },
+            {
+              "id": "732",
+              "name": "Sambirir",
+              "constituencyName": "Marakwet East"
+            },
+            {
+              "id": "736",
+              "name": "Sengwer",
+              "constituencyName": "Marakwet West"
+            }
+          ]
         },
         {
           "name": "Marakwet West",
-          "matchedWardCount": 0,
-          "wards": []
+          "matchedWardCount": 10,
+          "wards": [
+            {
+              "id": "740",
+              "name": "Arror",
+              "constituencyName": "Marakwet West"
+            },
+            {
+              "id": "737",
+              "name": "Cherang'Any/Chebororwa",
+              "constituencyName": "Marakwet West"
+            },
+            {
+              "id": "734",
+              "name": "Embobut / Embulot",
+              "constituencyName": "Marakwet East"
+            },
+            {
+              "id": "733",
+              "name": "Endo",
+              "constituencyName": "Marakwet East"
+            },
+            {
+              "id": "739",
+              "name": "Kapsowar",
+              "constituencyName": "Marakwet West"
+            },
+            {
+              "id": "731",
+              "name": "Kapyego",
+              "constituencyName": "Marakwet East"
+            },
+            {
+              "id": "735",
+              "name": "Lelan",
+              "constituencyName": "Marakwet West"
+            },
+            {
+              "id": "738",
+              "name": "Moiben/Kuserwo",
+              "constituencyName": "Marakwet West"
+            },
+            {
+              "id": "732",
+              "name": "Sambirir",
+              "constituencyName": "Marakwet East"
+            },
+            {
+              "id": "736",
+              "name": "Sengwer",
+              "constituencyName": "Marakwet West"
+            }
+          ]
         }
       ],
-      "wards": []
+      "wards": [
+        {
+          "id": "740",
+          "name": "Arror",
+          "constituencyName": "Marakwet West"
+        },
+        {
+          "id": "746",
+          "name": "Chepkorio",
+          "constituencyName": "Keiyo South"
+        },
+        {
+          "id": "737",
+          "name": "Cherang'Any/Chebororwa",
+          "constituencyName": "Marakwet West"
+        },
+        {
+          "id": "734",
+          "name": "Embobut / Embulot",
+          "constituencyName": "Marakwet East"
+        },
+        {
+          "id": "741",
+          "name": "Emsoo",
+          "constituencyName": "Keiyo North"
+        },
+        {
+          "id": "733",
+          "name": "Endo",
+          "constituencyName": "Marakwet East"
+        },
+        {
+          "id": "749",
+          "name": "Kabiemit",
+          "constituencyName": "Keiyo South"
+        },
+        {
+          "id": "742",
+          "name": "Kamariny",
+          "constituencyName": "Keiyo North"
+        },
+        {
+          "id": "743",
+          "name": "Kapchemutwa",
+          "constituencyName": "Keiyo North"
+        },
+        {
+          "id": "739",
+          "name": "Kapsowar",
+          "constituencyName": "Marakwet West"
+        },
+        {
+          "id": "745",
+          "name": "Kaptarakwa",
+          "constituencyName": "Keiyo South"
+        },
+        {
+          "id": "731",
+          "name": "Kapyego",
+          "constituencyName": "Marakwet East"
+        },
+        {
+          "id": "735",
+          "name": "Lelan",
+          "constituencyName": "Marakwet West"
+        },
+        {
+          "id": "750",
+          "name": "Metkei",
+          "constituencyName": "Keiyo South"
+        },
+        {
+          "id": "738",
+          "name": "Moiben/Kuserwo",
+          "constituencyName": "Marakwet West"
+        },
+        {
+          "id": "732",
+          "name": "Sambirir",
+          "constituencyName": "Marakwet East"
+        },
+        {
+          "id": "736",
+          "name": "Sengwer",
+          "constituencyName": "Marakwet West"
+        },
+        {
+          "id": "747",
+          "name": "Soy North",
+          "constituencyName": "Keiyo South"
+        },
+        {
+          "id": "748",
+          "name": "Soy South",
+          "constituencyName": "Keiyo South"
+        },
+        {
+          "id": "744",
+          "name": "Tambach",
+          "constituencyName": "Keiyo North"
+        }
+      ]
     },
     {
       "name": "Embu",
@@ -1738,8 +2125,39 @@
       "subCounties": [
         {
           "name": "Daadab",
-          "matchedWardCount": 0,
-          "wards": []
+          "matchedWardCount": 6,
+          "wards": [
+            {
+              "id": "151",
+              "name": "Abakaile",
+              "constituencyName": "Dadaab"
+            },
+            {
+              "id": "147",
+              "name": "Dadaab",
+              "constituencyName": "Dadaab"
+            },
+            {
+              "id": "149",
+              "name": "Damajale",
+              "constituencyName": "Dadaab"
+            },
+            {
+              "id": "146",
+              "name": "Dertu",
+              "constituencyName": "Dadaab"
+            },
+            {
+              "id": "148",
+              "name": "Labasigale",
+              "constituencyName": "Dadaab"
+            },
+            {
+              "id": "150",
+              "name": "Liboi",
+              "constituencyName": "Dadaab"
+            }
+          ]
         },
         {
           "name": "Fafi",
@@ -2051,8 +2469,29 @@
       "subCounties": [
         {
           "name": "Homabay Town",
-          "matchedWardCount": 0,
-          "wards": []
+          "matchedWardCount": 4,
+          "wards": [
+            {
+              "id": "1242",
+              "name": "Homa Bay Arujo",
+              "constituencyName": "Homa Bay Town"
+            },
+            {
+              "id": "1241",
+              "name": "Homa Bay Central",
+              "constituencyName": "Homa Bay Town"
+            },
+            {
+              "id": "1244",
+              "name": "Homa Bay East",
+              "constituencyName": "Homa Bay Town"
+            },
+            {
+              "id": "1243",
+              "name": "Homa Bay West",
+              "constituencyName": "Homa Bay Town"
+            }
+          ]
         },
         {
           "name": "Kabondo",
@@ -2082,8 +2521,44 @@
         },
         {
           "name": "Karachwonyo",
-          "matchedWardCount": 0,
-          "wards": []
+          "matchedWardCount": 7,
+          "wards": [
+            {
+              "id": "1232",
+              "name": "Central",
+              "constituencyName": "Karachuonyo"
+            },
+            {
+              "id": "1233",
+              "name": "Kanyaluo",
+              "constituencyName": "Karachuonyo"
+            },
+            {
+              "id": "1236",
+              "name": "Kendu Bay Town",
+              "constituencyName": "Karachuonyo"
+            },
+            {
+              "id": "1234",
+              "name": "Kibiri",
+              "constituencyName": "Karachuonyo"
+            },
+            {
+              "id": "1231",
+              "name": "North Karachuonyo",
+              "constituencyName": "Karachuonyo"
+            },
+            {
+              "id": "1235",
+              "name": "Wangchieng",
+              "constituencyName": "Karachuonyo"
+            },
+            {
+              "id": "1230",
+              "name": "West Karachuonyo",
+              "constituencyName": "Karachuonyo"
+            }
+          ]
         },
         {
           "name": "Kasipul",
@@ -2596,8 +3071,28 @@
         },
         {
           "name": "Kajiado North.",
-          "matchedWardCount": 5,
+          "matchedWardCount": 10,
           "wards": [
+            {
+              "id": "931",
+              "name": "Entonet/Lenkisim",
+              "constituencyName": "Kajiado South"
+            },
+            {
+              "id": "935",
+              "name": "Kimana",
+              "constituencyName": "Kajiado South"
+            },
+            {
+              "id": "933",
+              "name": "Kuku",
+              "constituencyName": "Kajiado South"
+            },
+            {
+              "id": "932",
+              "name": "Mbirikani/Eselenkei",
+              "constituencyName": "Kajiado South"
+            },
             {
               "id": "915",
               "name": "Ngong",
@@ -2622,6 +3117,11 @@
               "id": "912",
               "name": "Ongata Rongai",
               "constituencyName": "Kajiado North"
+            },
+            {
+              "id": "934",
+              "name": "Rombo",
+              "constituencyName": "Kajiado South"
             }
           ]
         },
@@ -2884,8 +3384,34 @@
         },
         {
           "name": "Lukuyani",
-          "matchedWardCount": 0,
-          "wards": []
+          "matchedWardCount": 5,
+          "wards": [
+            {
+              "id": "999",
+              "name": "Kongoni",
+              "constituencyName": "Likuyani"
+            },
+            {
+              "id": "997",
+              "name": "Likuyani",
+              "constituencyName": "Likuyani"
+            },
+            {
+              "id": "1000",
+              "name": "Nzoia",
+              "constituencyName": "Likuyani"
+            },
+            {
+              "id": "998",
+              "name": "Sango",
+              "constituencyName": "Likuyani"
+            },
+            {
+              "id": "1001",
+              "name": "Sinoko",
+              "constituencyName": "Likuyani"
+            }
+          ]
         },
         {
           "name": "Lurambi",
@@ -2971,8 +3497,34 @@
         },
         {
           "name": "Mutungu",
-          "matchedWardCount": 0,
-          "wards": []
+          "matchedWardCount": 5,
+          "wards": [
+            {
+              "id": "1029",
+              "name": "Khalaba",
+              "constituencyName": "Matungu"
+            },
+            {
+              "id": "1028",
+              "name": "Kholera",
+              "constituencyName": "Matungu"
+            },
+            {
+              "id": "1027",
+              "name": "Koyonzo",
+              "constituencyName": "Matungu"
+            },
+            {
+              "id": "1030",
+              "name": "Mayoni",
+              "constituencyName": "Matungu"
+            },
+            {
+              "id": "1031",
+              "name": "Namamali",
+              "constituencyName": "Matungu"
+            }
+          ]
         },
         {
           "name": "Navakholo",
@@ -3424,7 +3976,7 @@
         },
         {
           "name": "Kipkelion East",
-          "matchedWardCount": 4,
+          "matchedWardCount": 8,
           "wards": [
             {
               "id": "938",
@@ -3432,9 +3984,29 @@
               "constituencyName": "Kipkelion East"
             },
             {
+              "id": "943",
+              "name": "Chilchila",
+              "constituencyName": "Kipkelion West"
+            },
+            {
+              "id": "941",
+              "name": "Kamasian",
+              "constituencyName": "Kipkelion West"
+            },
+            {
               "id": "937",
               "name": "Kedowa/Kimugul",
               "constituencyName": "Kipkelion East"
+            },
+            {
+              "id": "942",
+              "name": "Kipkelion",
+              "constituencyName": "Kipkelion West"
+            },
+            {
+              "id": "940",
+              "name": "Kunyak",
+              "constituencyName": "Kipkelion West"
             },
             {
               "id": "936",
@@ -3450,8 +4022,13 @@
         },
         {
           "name": "Kipkelion West",
-          "matchedWardCount": 4,
+          "matchedWardCount": 8,
           "wards": [
+            {
+              "id": "938",
+              "name": "Chepseon",
+              "constituencyName": "Kipkelion East"
+            },
             {
               "id": "943",
               "name": "Chilchila",
@@ -3463,6 +4040,11 @@
               "constituencyName": "Kipkelion West"
             },
             {
+              "id": "937",
+              "name": "Kedowa/Kimugul",
+              "constituencyName": "Kipkelion East"
+            },
+            {
               "id": "942",
               "name": "Kipkelion",
               "constituencyName": "Kipkelion West"
@@ -3471,13 +4053,44 @@
               "id": "940",
               "name": "Kunyak",
               "constituencyName": "Kipkelion West"
+            },
+            {
+              "id": "936",
+              "name": "Londiani",
+              "constituencyName": "Kipkelion East"
+            },
+            {
+              "id": "939",
+              "name": "Tendeno/Sorget",
+              "constituencyName": "Kipkelion East"
             }
           ]
         },
         {
           "name": "Soin Sigowet",
-          "matchedWardCount": 0,
-          "wards": []
+          "matchedWardCount": 4,
+          "wards": [
+            {
+              "id": "963",
+              "name": "Kaplelartet",
+              "constituencyName": "Sigowet/Soin"
+            },
+            {
+              "id": "962",
+              "name": "Sigowet",
+              "constituencyName": "Sigowet/Soin"
+            },
+            {
+              "id": "965",
+              "name": "Soin",
+              "constituencyName": "Sigowet/Soin"
+            },
+            {
+              "id": "964",
+              "name": "Soliat",
+              "constituencyName": "Sigowet/Soin"
+            }
+          ]
         }
       ],
       "wards": [
@@ -3640,7 +4253,7 @@
       "subCounties": [
         {
           "name": "Gatundu North",
-          "matchedWardCount": 4,
+          "matchedWardCount": 8,
           "wards": [
             {
               "id": "557",
@@ -3658,16 +4271,51 @@
               "constituencyName": "Gatundu North"
             },
             {
+              "id": "551",
+              "name": "Kiamwangi",
+              "constituencyName": "Gatundu South"
+            },
+            {
+              "id": "552",
+              "name": "Kiganjo",
+              "constituencyName": "Gatundu South"
+            },
+            {
               "id": "558",
               "name": "Mang'U",
               "constituencyName": "Gatundu North"
+            },
+            {
+              "id": "553",
+              "name": "Ndarugu",
+              "constituencyName": "Gatundu South"
+            },
+            {
+              "id": "554",
+              "name": "Ngenda",
+              "constituencyName": "Gatundu South"
             }
           ]
         },
         {
           "name": "Gatundu South",
-          "matchedWardCount": 4,
+          "matchedWardCount": 8,
           "wards": [
+            {
+              "id": "557",
+              "name": "Chania",
+              "constituencyName": "Gatundu North"
+            },
+            {
+              "id": "556",
+              "name": "Githobokoni",
+              "constituencyName": "Gatundu North"
+            },
+            {
+              "id": "555",
+              "name": "Gituamba",
+              "constituencyName": "Gatundu North"
+            },
             {
               "id": "551",
               "name": "Kiamwangi",
@@ -3677,6 +4325,11 @@
               "id": "552",
               "name": "Kiganjo",
               "constituencyName": "Gatundu South"
+            },
+            {
+              "id": "558",
+              "name": "Mang'U",
+              "constituencyName": "Gatundu North"
             },
             {
               "id": "553",
@@ -4321,8 +4974,29 @@
       "subCounties": [
         {
           "name": "Genzw",
-          "matchedWardCount": 0,
-          "wards": []
+          "matchedWardCount": 4,
+          "wards": [
+            {
+              "id": "72",
+              "name": "Bamba",
+              "constituencyName": "Ganze"
+            },
+            {
+              "id": "71",
+              "name": "Ganze",
+              "constituencyName": "Ganze"
+            },
+            {
+              "id": "73",
+              "name": "Jaribuni",
+              "constituencyName": "Ganze"
+            },
+            {
+              "id": "74",
+              "name": "Sokoke",
+              "constituencyName": "Ganze"
+            }
+          ]
         },
         {
           "name": "Kaloleni",
@@ -5207,12 +5881,22 @@
         },
         {
           "name": "Kisumu East ",
-          "matchedWardCount": 5,
+          "matchedWardCount": 10,
           "wards": [
+            {
+              "id": "1192",
+              "name": "Central Kisumu",
+              "constituencyName": "Kisumu West"
+            },
             {
               "id": "1186",
               "name": "Kajulu",
               "constituencyName": "Kisumu East"
+            },
+            {
+              "id": "1193",
+              "name": "Kisumu North",
+              "constituencyName": "Kisumu West"
             },
             {
               "id": "1190",
@@ -5230,15 +5914,30 @@
               "constituencyName": "Kisumu East"
             },
             {
+              "id": "1195",
+              "name": "North West Kisumu",
+              "constituencyName": "Kisumu West"
+            },
+            {
               "id": "1189",
               "name": "Nyalenda 'A'",
               "constituencyName": "Kisumu East"
+            },
+            {
+              "id": "1191",
+              "name": "South West Kisumu",
+              "constituencyName": "Kisumu West"
+            },
+            {
+              "id": "1194",
+              "name": "West Kisumu",
+              "constituencyName": "Kisumu West"
             }
           ]
         },
         {
           "name": "Kisumu West",
-          "matchedWardCount": 5,
+          "matchedWardCount": 10,
           "wards": [
             {
               "id": "1192",
@@ -5246,14 +5945,39 @@
               "constituencyName": "Kisumu West"
             },
             {
+              "id": "1186",
+              "name": "Kajulu",
+              "constituencyName": "Kisumu East"
+            },
+            {
               "id": "1193",
               "name": "Kisumu North",
               "constituencyName": "Kisumu West"
             },
             {
+              "id": "1190",
+              "name": "Kolwa Central",
+              "constituencyName": "Kisumu East"
+            },
+            {
+              "id": "1187",
+              "name": "Kolwa East",
+              "constituencyName": "Kisumu East"
+            },
+            {
+              "id": "1188",
+              "name": "Manyatta 'B'",
+              "constituencyName": "Kisumu East"
+            },
+            {
               "id": "1195",
               "name": "North West Kisumu",
               "constituencyName": "Kisumu West"
+            },
+            {
+              "id": "1189",
+              "name": "Nyalenda 'A'",
+              "constituencyName": "Kisumu East"
             },
             {
               "id": "1191",
@@ -5269,8 +5993,34 @@
         },
         {
           "name": "Mohoroni",
-          "matchedWardCount": 0,
-          "wards": []
+          "matchedWardCount": 5,
+          "wards": [
+            {
+              "id": "1214",
+              "name": "Chemelil",
+              "constituencyName": "Muhoroni"
+            },
+            {
+              "id": "1213",
+              "name": "Masogo/Nyang'Oma",
+              "constituencyName": "Muhoroni"
+            },
+            {
+              "id": "1211",
+              "name": "Miwani",
+              "constituencyName": "Muhoroni"
+            },
+            {
+              "id": "1215",
+              "name": "Muhoroni/Koru",
+              "constituencyName": "Muhoroni"
+            },
+            {
+              "id": "1212",
+              "name": "Ombeyi",
+              "constituencyName": "Muhoroni"
+            }
+          ]
         },
         {
           "name": "Nyakach",
@@ -5592,8 +6342,18 @@
         },
         {
           "name": "Kitui West ",
-          "matchedWardCount": 4,
+          "matchedWardCount": 10,
           "wards": [
+            {
+              "id": "360",
+              "name": "Chuluni",
+              "constituencyName": "Kitui East"
+            },
+            {
+              "id": "363",
+              "name": "Endau/Malalani",
+              "constituencyName": "Kitui East"
+            },
             {
               "id": "347",
               "name": "Kauwi",
@@ -5610,9 +6370,29 @@
               "constituencyName": "Kitui West"
             },
             {
+              "id": "364",
+              "name": "Mutito/Kaliku",
+              "constituencyName": "Kitui East"
+            },
+            {
               "id": "346",
               "name": "Mutonguni",
               "constituencyName": "Kitui West"
+            },
+            {
+              "id": "361",
+              "name": "Nzambani",
+              "constituencyName": "Kitui East"
+            },
+            {
+              "id": "362",
+              "name": "Voo/Kyamatu",
+              "constituencyName": "Kitui East"
+            },
+            {
+              "id": "359",
+              "name": "Zombe/Mwitika",
+              "constituencyName": "Kitui East"
             }
           ]
         },
@@ -5684,8 +6464,29 @@
         },
         {
           "name": "Mwingi East",
-          "matchedWardCount": 0,
-          "wards": []
+          "matchedWardCount": 4,
+          "wards": [
+            {
+              "id": "339",
+              "name": "Kiomo/Kyethani",
+              "constituencyName": "Mwingi West"
+            },
+            {
+              "id": "336",
+              "name": "Kyome/Thaana",
+              "constituencyName": "Mwingi West"
+            },
+            {
+              "id": "338",
+              "name": "Migwani",
+              "constituencyName": "Mwingi West"
+            },
+            {
+              "id": "337",
+              "name": "Nguutani",
+              "constituencyName": "Mwingi West"
+            }
+          ]
         },
         {
           "name": "Nzambani",
@@ -6120,8 +6921,23 @@
         },
         {
           "name": "Laikipia East",
-          "matchedWardCount": 5,
+          "matchedWardCount": 11,
           "wards": [
+            {
+              "id": "815",
+              "name": "Igwamiti",
+              "constituencyName": "Laikipia West"
+            },
+            {
+              "id": "813",
+              "name": "Kinamba",
+              "constituencyName": "Laikipia West"
+            },
+            {
+              "id": "814",
+              "name": "Marmanet",
+              "constituencyName": "Laikipia West"
+            },
             {
               "id": "820",
               "name": "Nanyuki",
@@ -6131,6 +6947,21 @@
               "id": "817",
               "name": "Ngobit",
               "constituencyName": "Laikipia East"
+            },
+            {
+              "id": "811",
+              "name": "Olmoran",
+              "constituencyName": "Laikipia West"
+            },
+            {
+              "id": "812",
+              "name": "Rumuruti Township",
+              "constituencyName": "Laikipia West"
+            },
+            {
+              "id": "816",
+              "name": "Salama",
+              "constituencyName": "Laikipia West"
             },
             {
               "id": "819",
@@ -6177,7 +7008,7 @@
         },
         {
           "name": "Laikipia West ",
-          "matchedWardCount": 6,
+          "matchedWardCount": 11,
           "wards": [
             {
               "id": "815",
@@ -6195,6 +7026,16 @@
               "constituencyName": "Laikipia West"
             },
             {
+              "id": "820",
+              "name": "Nanyuki",
+              "constituencyName": "Laikipia East"
+            },
+            {
+              "id": "817",
+              "name": "Ngobit",
+              "constituencyName": "Laikipia East"
+            },
+            {
               "id": "811",
               "name": "Olmoran",
               "constituencyName": "Laikipia West"
@@ -6208,6 +7049,21 @@
               "id": "816",
               "name": "Salama",
               "constituencyName": "Laikipia West"
+            },
+            {
+              "id": "819",
+              "name": "Thingithu",
+              "constituencyName": "Laikipia East"
+            },
+            {
+              "id": "818",
+              "name": "Tigithi",
+              "constituencyName": "Laikipia East"
+            },
+            {
+              "id": "821",
+              "name": "Umande",
+              "constituencyName": "Laikipia East"
             }
           ]
         },
@@ -6302,8 +7158,13 @@
       "subCounties": [
         {
           "name": "Lamu East",
-          "matchedWardCount": 3,
+          "matchedWardCount": 10,
           "wards": [
+            {
+              "id": "110",
+              "name": "Bahari",
+              "constituencyName": "Lamu West"
+            },
             {
               "id": "103",
               "name": "Basuba",
@@ -6315,20 +7176,60 @@
               "constituencyName": "Lamu East"
             },
             {
+              "id": "106",
+              "name": "Hindi",
+              "constituencyName": "Lamu West"
+            },
+            {
+              "id": "108",
+              "name": "Hongwe",
+              "constituencyName": "Lamu West"
+            },
+            {
               "id": "102",
               "name": "Kiunga",
               "constituencyName": "Lamu East"
+            },
+            {
+              "id": "105",
+              "name": "Mkomani",
+              "constituencyName": "Lamu West"
+            },
+            {
+              "id": "107",
+              "name": "Mkunumbi",
+              "constituencyName": "Lamu West"
+            },
+            {
+              "id": "104",
+              "name": "Shella",
+              "constituencyName": "Lamu West"
+            },
+            {
+              "id": "109",
+              "name": "Witu",
+              "constituencyName": "Lamu West"
             }
           ]
         },
         {
           "name": "Lamu West",
-          "matchedWardCount": 7,
+          "matchedWardCount": 10,
           "wards": [
             {
               "id": "110",
               "name": "Bahari",
               "constituencyName": "Lamu West"
+            },
+            {
+              "id": "103",
+              "name": "Basuba",
+              "constituencyName": "Lamu East"
+            },
+            {
+              "id": "101",
+              "name": "Faza",
+              "constituencyName": "Lamu East"
             },
             {
               "id": "106",
@@ -6339,6 +7240,11 @@
               "id": "108",
               "name": "Hongwe",
               "constituencyName": "Lamu West"
+            },
+            {
+              "id": "102",
+              "name": "Kiunga",
+              "constituencyName": "Lamu East"
             },
             {
               "id": "105",
@@ -6880,17 +7786,32 @@
         },
         {
           "name": "Kibwei West",
-          "matchedWardCount": 0,
-          "wards": []
-        },
-        {
-          "name": "Kibwezi East",
-          "matchedWardCount": 4,
+          "matchedWardCount": 10,
           "wards": [
+            {
+              "id": "436",
+              "name": "Emali/Mulala",
+              "constituencyName": "Kibwezi West"
+            },
             {
               "id": "440",
               "name": "Ivingoni/Nzambani",
               "constituencyName": "Kibwezi East"
+            },
+            {
+              "id": "433",
+              "name": "Kikumbulyu North",
+              "constituencyName": "Kibwezi West"
+            },
+            {
+              "id": "434",
+              "name": "Kikumbulyu South",
+              "constituencyName": "Kibwezi West"
+            },
+            {
+              "id": "431",
+              "name": "Makindu",
+              "constituencyName": "Kibwezi West"
             },
             {
               "id": "437",
@@ -6901,6 +7822,72 @@
               "id": "438",
               "name": "Mtito Andei",
               "constituencyName": "Kibwezi East"
+            },
+            {
+              "id": "435",
+              "name": "Nguu/Masumba",
+              "constituencyName": "Kibwezi West"
+            },
+            {
+              "id": "432",
+              "name": "Nguumo",
+              "constituencyName": "Kibwezi West"
+            },
+            {
+              "id": "439",
+              "name": "Thange",
+              "constituencyName": "Kibwezi East"
+            }
+          ]
+        },
+        {
+          "name": "Kibwezi East",
+          "matchedWardCount": 10,
+          "wards": [
+            {
+              "id": "436",
+              "name": "Emali/Mulala",
+              "constituencyName": "Kibwezi West"
+            },
+            {
+              "id": "440",
+              "name": "Ivingoni/Nzambani",
+              "constituencyName": "Kibwezi East"
+            },
+            {
+              "id": "433",
+              "name": "Kikumbulyu North",
+              "constituencyName": "Kibwezi West"
+            },
+            {
+              "id": "434",
+              "name": "Kikumbulyu South",
+              "constituencyName": "Kibwezi West"
+            },
+            {
+              "id": "431",
+              "name": "Makindu",
+              "constituencyName": "Kibwezi West"
+            },
+            {
+              "id": "437",
+              "name": "Masongaleni",
+              "constituencyName": "Kibwezi East"
+            },
+            {
+              "id": "438",
+              "name": "Mtito Andei",
+              "constituencyName": "Kibwezi East"
+            },
+            {
+              "id": "435",
+              "name": "Nguu/Masumba",
+              "constituencyName": "Kibwezi West"
+            },
+            {
+              "id": "432",
+              "name": "Nguumo",
+              "constituencyName": "Kibwezi West"
             },
             {
               "id": "439",
@@ -7230,7 +8217,7 @@
         },
         {
           "name": "Mandera East",
-          "matchedWardCount": 5,
+          "matchedWardCount": 10,
           "wards": [
             {
               "id": "211",
@@ -7243,14 +8230,39 @@
               "constituencyName": "Mandera East"
             },
             {
+              "id": "194",
+              "name": "Dandu",
+              "constituencyName": "Mandera West"
+            },
+            {
+              "id": "195",
+              "name": "Gither",
+              "constituencyName": "Mandera West"
+            },
+            {
               "id": "213",
               "name": "Khalalio",
               "constituencyName": "Mandera East"
             },
             {
+              "id": "193",
+              "name": "Lag Sure",
+              "constituencyName": "Mandera West"
+            },
+            {
               "id": "214",
               "name": "Neboi",
               "constituencyName": "Mandera East"
+            },
+            {
+              "id": "192",
+              "name": "Takaba",
+              "constituencyName": "Mandera West"
+            },
+            {
+              "id": "191",
+              "name": "Takaba South",
+              "constituencyName": "Mandera West"
             },
             {
               "id": "215",
@@ -7261,7 +8273,7 @@
         },
         {
           "name": "Mandera North",
-          "matchedWardCount": 5,
+          "matchedWardCount": 10,
           "wards": [
             {
               "id": "201",
@@ -7269,9 +8281,24 @@
               "constituencyName": "Mandera North"
             },
             {
+              "id": "209",
+              "name": "Elwak North",
+              "constituencyName": "Mandera South"
+            },
+            {
+              "id": "208",
+              "name": "Elwak South",
+              "constituencyName": "Mandera South"
+            },
+            {
               "id": "202",
               "name": "Guticha",
               "constituencyName": "Mandera North"
+            },
+            {
+              "id": "207",
+              "name": "Kutulo",
+              "constituencyName": "Mandera South"
             },
             {
               "id": "203",
@@ -7287,13 +8314,28 @@
               "id": "205",
               "name": "Rhamu-Dimtu",
               "constituencyName": "Mandera North"
+            },
+            {
+              "id": "210",
+              "name": "Shimbir Fatuma",
+              "constituencyName": "Mandera South"
+            },
+            {
+              "id": "206",
+              "name": "Wargudud",
+              "constituencyName": "Mandera South"
             }
           ]
         },
         {
           "name": "Mandera South",
-          "matchedWardCount": 5,
+          "matchedWardCount": 10,
           "wards": [
+            {
+              "id": "201",
+              "name": "Ashabito",
+              "constituencyName": "Mandera North"
+            },
             {
               "id": "209",
               "name": "Elwak North",
@@ -7305,9 +8347,29 @@
               "constituencyName": "Mandera South"
             },
             {
+              "id": "202",
+              "name": "Guticha",
+              "constituencyName": "Mandera North"
+            },
+            {
               "id": "207",
               "name": "Kutulo",
               "constituencyName": "Mandera South"
+            },
+            {
+              "id": "203",
+              "name": "Morothile",
+              "constituencyName": "Mandera North"
+            },
+            {
+              "id": "204",
+              "name": "Rhamu",
+              "constituencyName": "Mandera North"
+            },
+            {
+              "id": "205",
+              "name": "Rhamu-Dimtu",
+              "constituencyName": "Mandera North"
             },
             {
               "id": "210",
@@ -7323,8 +8385,18 @@
         },
         {
           "name": "Mandera West",
-          "matchedWardCount": 5,
+          "matchedWardCount": 10,
           "wards": [
+            {
+              "id": "211",
+              "name": "Arabia",
+              "constituencyName": "Mandera East"
+            },
+            {
+              "id": "212",
+              "name": "Bulla Mpya",
+              "constituencyName": "Mandera East"
+            },
             {
               "id": "194",
               "name": "Dandu",
@@ -7336,9 +8408,19 @@
               "constituencyName": "Mandera West"
             },
             {
+              "id": "213",
+              "name": "Khalalio",
+              "constituencyName": "Mandera East"
+            },
+            {
               "id": "193",
               "name": "Lag Sure",
               "constituencyName": "Mandera West"
+            },
+            {
+              "id": "214",
+              "name": "Neboi",
+              "constituencyName": "Mandera East"
             },
             {
               "id": "192",
@@ -7349,6 +8431,11 @@
               "id": "191",
               "name": "Takaba South",
               "constituencyName": "Mandera West"
+            },
+            {
+              "id": "215",
+              "name": "Township",
+              "constituencyName": "Mandera East"
             }
           ]
         }
@@ -7870,53 +8957,100 @@
         },
         {
           "name": "Imenti Central",
-          "matchedWardCount": 0,
-          "wards": []
-        },
-        {
-          "name": "Imenti North",
-          "matchedWardCount": 0,
-          "wards": []
-        },
-        {
-          "name": "Imenti South",
-          "matchedWardCount": 0,
-          "wards": []
-        },
-        {
-          "name": "Tigania East",
-          "matchedWardCount": 5,
+          "matchedWardCount": 4,
           "wards": [
             {
-              "id": "275",
-              "name": "Karama",
-              "constituencyName": "Tigania East"
+              "id": "287",
+              "name": "Abothuguchi Central",
+              "constituencyName": "Central Imenti"
             },
             {
-              "id": "273",
-              "name": "Kiguchwa",
-              "constituencyName": "Tigania East"
+              "id": "288",
+              "name": "Abothuguchi West",
+              "constituencyName": "Central Imenti"
             },
             {
-              "id": "272",
-              "name": "Mikinduri",
-              "constituencyName": "Tigania East"
+              "id": "289",
+              "name": "Kiagu",
+              "constituencyName": "Central Imenti"
             },
             {
-              "id": "274",
-              "name": "Muthara",
-              "constituencyName": "Tigania East"
-            },
-            {
-              "id": "271",
-              "name": "Thangatha",
-              "constituencyName": "Tigania East"
+              "id": "286",
+              "name": "Mwanganthia",
+              "constituencyName": "Central Imenti"
             }
           ]
         },
         {
-          "name": "Tigania West",
+          "name": "Imenti North",
           "matchedWardCount": 5,
+          "wards": [
+            {
+              "id": "276",
+              "name": "Municipality",
+              "constituencyName": "North Imenti"
+            },
+            {
+              "id": "277",
+              "name": "Ntima East",
+              "constituencyName": "North Imenti"
+            },
+            {
+              "id": "278",
+              "name": "Ntima West",
+              "constituencyName": "North Imenti"
+            },
+            {
+              "id": "280",
+              "name": "Nyaki East",
+              "constituencyName": "North Imenti"
+            },
+            {
+              "id": "279",
+              "name": "Nyaki West",
+              "constituencyName": "North Imenti"
+            }
+          ]
+        },
+        {
+          "name": "Imenti South",
+          "matchedWardCount": 6,
+          "wards": [
+            {
+              "id": "293",
+              "name": "Abogeta East",
+              "constituencyName": "South Imenti"
+            },
+            {
+              "id": "294",
+              "name": "Abogeta West",
+              "constituencyName": "South Imenti"
+            },
+            {
+              "id": "291",
+              "name": "Igoji East",
+              "constituencyName": "South Imenti"
+            },
+            {
+              "id": "292",
+              "name": "Igoji West",
+              "constituencyName": "South Imenti"
+            },
+            {
+              "id": "290",
+              "name": "Mitunguu",
+              "constituencyName": "South Imenti"
+            },
+            {
+              "id": "295",
+              "name": "Nkuene",
+              "constituencyName": "South Imenti"
+            }
+          ]
+        },
+        {
+          "name": "Tigania East",
+          "matchedWardCount": 10,
           "wards": [
             {
               "id": "267",
@@ -7929,9 +9063,19 @@
               "constituencyName": "Tigania West"
             },
             {
+              "id": "275",
+              "name": "Karama",
+              "constituencyName": "Tigania East"
+            },
+            {
               "id": "268",
               "name": "Kianjai",
               "constituencyName": "Tigania West"
+            },
+            {
+              "id": "273",
+              "name": "Kiguchwa",
+              "constituencyName": "Tigania East"
             },
             {
               "id": "270",
@@ -7939,9 +9083,80 @@
               "constituencyName": "Tigania West"
             },
             {
+              "id": "272",
+              "name": "Mikinduri",
+              "constituencyName": "Tigania East"
+            },
+            {
+              "id": "274",
+              "name": "Muthara",
+              "constituencyName": "Tigania East"
+            },
+            {
               "id": "269",
               "name": "Nkomo",
               "constituencyName": "Tigania West"
+            },
+            {
+              "id": "271",
+              "name": "Thangatha",
+              "constituencyName": "Tigania East"
+            }
+          ]
+        },
+        {
+          "name": "Tigania West",
+          "matchedWardCount": 10,
+          "wards": [
+            {
+              "id": "267",
+              "name": "Akithii",
+              "constituencyName": "Tigania West"
+            },
+            {
+              "id": "266",
+              "name": "Athwana",
+              "constituencyName": "Tigania West"
+            },
+            {
+              "id": "275",
+              "name": "Karama",
+              "constituencyName": "Tigania East"
+            },
+            {
+              "id": "268",
+              "name": "Kianjai",
+              "constituencyName": "Tigania West"
+            },
+            {
+              "id": "273",
+              "name": "Kiguchwa",
+              "constituencyName": "Tigania East"
+            },
+            {
+              "id": "270",
+              "name": "Mbeu",
+              "constituencyName": "Tigania West"
+            },
+            {
+              "id": "272",
+              "name": "Mikinduri",
+              "constituencyName": "Tigania East"
+            },
+            {
+              "id": "274",
+              "name": "Muthara",
+              "constituencyName": "Tigania East"
+            },
+            {
+              "id": "269",
+              "name": "Nkomo",
+              "constituencyName": "Tigania West"
+            },
+            {
+              "id": "271",
+              "name": "Thangatha",
+              "constituencyName": "Tigania East"
             }
           ]
         }
@@ -8207,12 +9422,37 @@
         },
         {
           "name": "Kuria East",
-          "matchedWardCount": 5,
+          "matchedWardCount": 12,
           "wards": [
+            {
+              "id": "1290",
+              "name": "Bukira Centrl/Ikerege",
+              "constituencyName": "Kuria West"
+            },
+            {
+              "id": "1289",
+              "name": "Bukira East",
+              "constituencyName": "Kuria West"
+            },
             {
               "id": "1296",
               "name": "Gokeharaka/Getambwega",
               "constituencyName": "Kuria East"
+            },
+            {
+              "id": "1291",
+              "name": "Isibania",
+              "constituencyName": "Kuria West"
+            },
+            {
+              "id": "1292",
+              "name": "Makerero",
+              "constituencyName": "Kuria West"
+            },
+            {
+              "id": "1293",
+              "name": "Masaba",
+              "constituencyName": "Kuria West"
             },
             {
               "id": "1298",
@@ -8233,12 +9473,22 @@
               "id": "1300",
               "name": "Nyabasi West",
               "constituencyName": "Kuria East"
+            },
+            {
+              "id": "1295",
+              "name": "Nyamosense/Komosoko",
+              "constituencyName": "Kuria West"
+            },
+            {
+              "id": "1294",
+              "name": "Tagare",
+              "constituencyName": "Kuria West"
             }
           ]
         },
         {
           "name": "Kuria West",
-          "matchedWardCount": 7,
+          "matchedWardCount": 12,
           "wards": [
             {
               "id": "1290",
@@ -8249,6 +9499,11 @@
               "id": "1289",
               "name": "Bukira East",
               "constituencyName": "Kuria West"
+            },
+            {
+              "id": "1296",
+              "name": "Gokeharaka/Getambwega",
+              "constituencyName": "Kuria East"
             },
             {
               "id": "1291",
@@ -8264,6 +9519,26 @@
               "id": "1293",
               "name": "Masaba",
               "constituencyName": "Kuria West"
+            },
+            {
+              "id": "1298",
+              "name": "Ntimaru East",
+              "constituencyName": "Kuria East"
+            },
+            {
+              "id": "1297",
+              "name": "Ntimaru West",
+              "constituencyName": "Kuria East"
+            },
+            {
+              "id": "1299",
+              "name": "Nyabasi East",
+              "constituencyName": "Kuria East"
+            },
+            {
+              "id": "1300",
+              "name": "Nyabasi West",
+              "constituencyName": "Kuria East"
             },
             {
               "id": "1295",
@@ -8315,7 +9590,7 @@
         },
         {
           "name": "Suna East",
-          "matchedWardCount": 4,
+          "matchedWardCount": 8,
           "wards": [
             {
               "id": "1269",
@@ -8333,20 +9608,60 @@
               "constituencyName": "Suna East"
             },
             {
+              "id": "1275",
+              "name": "Ragana-Oruba",
+              "constituencyName": "Suna West"
+            },
+            {
               "id": "1270",
               "name": "Suna Central",
               "constituencyName": "Suna East"
+            },
+            {
+              "id": "1276",
+              "name": "Wasimbete",
+              "constituencyName": "Suna West"
+            },
+            {
+              "id": "1274",
+              "name": "Wasweta Ii",
+              "constituencyName": "Suna West"
+            },
+            {
+              "id": "1273",
+              "name": "Wiga",
+              "constituencyName": "Suna West"
             }
           ]
         },
         {
           "name": "Suna West",
-          "matchedWardCount": 4,
+          "matchedWardCount": 8,
           "wards": [
+            {
+              "id": "1269",
+              "name": "God Jope",
+              "constituencyName": "Suna East"
+            },
+            {
+              "id": "1271",
+              "name": "Kakrao",
+              "constituencyName": "Suna East"
+            },
+            {
+              "id": "1272",
+              "name": "Kwa",
+              "constituencyName": "Suna East"
+            },
             {
               "id": "1275",
               "name": "Ragana-Oruba",
               "constituencyName": "Suna West"
+            },
+            {
+              "id": "1270",
+              "name": "Suna Central",
+              "constituencyName": "Suna East"
             },
             {
               "id": "1276",
@@ -9327,7 +10642,7 @@
       "subCounties": [
         {
           "name": "Dagoretti North Sub County",
-          "matchedWardCount": 5,
+          "matchedWardCount": 10,
           "wards": [
             {
               "id": "1373",
@@ -9353,13 +10668,63 @@
               "id": "1371",
               "name": "Kilimani",
               "constituencyName": "Dagoretti North"
+            },
+            {
+              "id": "1376",
+              "name": "Mutuini",
+              "constituencyName": "Dagoretti South"
+            },
+            {
+              "id": "1377",
+              "name": "Ngando",
+              "constituencyName": "Dagoretti South"
+            },
+            {
+              "id": "1378",
+              "name": "Riruta",
+              "constituencyName": "Dagoretti South"
+            },
+            {
+              "id": "1379",
+              "name": "Uthiru/Ruthimitu",
+              "constituencyName": "Dagoretti South"
+            },
+            {
+              "id": "1380",
+              "name": "Waithaka",
+              "constituencyName": "Dagoretti South"
             }
           ]
         },
         {
           "name": "Dagoretti South Sub County ",
-          "matchedWardCount": 5,
+          "matchedWardCount": 10,
           "wards": [
+            {
+              "id": "1373",
+              "name": "Gatina",
+              "constituencyName": "Dagoretti North"
+            },
+            {
+              "id": "1375",
+              "name": "Kabiro",
+              "constituencyName": "Dagoretti North"
+            },
+            {
+              "id": "1372",
+              "name": "Kawangware",
+              "constituencyName": "Dagoretti North"
+            },
+            {
+              "id": "1374",
+              "name": "Kileleshwa",
+              "constituencyName": "Dagoretti North"
+            },
+            {
+              "id": "1371",
+              "name": "Kilimani",
+              "constituencyName": "Dagoretti North"
+            },
             {
               "id": "1376",
               "name": "Mutuini",
@@ -9420,12 +10785,17 @@
         },
         {
           "name": "Embakasi East Sub County",
-          "matchedWardCount": 5,
+          "matchedWardCount": 9,
           "wards": [
             {
               "id": "1423",
               "name": "Embakasi",
               "constituencyName": "Embakasi East"
+            },
+            {
+              "id": "1429",
+              "name": "Kariobangi South",
+              "constituencyName": "Embakasi West"
             },
             {
               "id": "1422",
@@ -9436,6 +10806,21 @@
               "id": "1425",
               "name": "Mihango",
               "constituencyName": "Embakasi East"
+            },
+            {
+              "id": "1428",
+              "name": "Mowlem",
+              "constituencyName": "Embakasi West"
+            },
+            {
+              "id": "1426",
+              "name": "Umoja I",
+              "constituencyName": "Embakasi West"
+            },
+            {
+              "id": "1427",
+              "name": "Umoja Ii",
+              "constituencyName": "Embakasi West"
             },
             {
               "id": "1421",
@@ -9451,7 +10836,7 @@
         },
         {
           "name": "Embakasi North Sub County ",
-          "matchedWardCount": 5,
+          "matchedWardCount": 10,
           "wards": [
             {
               "id": "1412",
@@ -9474,20 +10859,70 @@
               "constituencyName": "Embakasi North"
             },
             {
+              "id": "1406",
+              "name": "Imara Daima",
+              "constituencyName": "Embakasi South"
+            },
+            {
               "id": "1411",
               "name": "Kariobangi North",
               "constituencyName": "Embakasi North"
+            },
+            {
+              "id": "1407",
+              "name": "Kwa Njenga",
+              "constituencyName": "Embakasi South"
+            },
+            {
+              "id": "1408",
+              "name": "Kwa Reuben",
+              "constituencyName": "Embakasi South"
+            },
+            {
+              "id": "1410",
+              "name": "Kware",
+              "constituencyName": "Embakasi South"
+            },
+            {
+              "id": "1409",
+              "name": "Pipeline",
+              "constituencyName": "Embakasi South"
             }
           ]
         },
         {
           "name": "Embakasi South Sub County",
-          "matchedWardCount": 5,
+          "matchedWardCount": 10,
           "wards": [
+            {
+              "id": "1412",
+              "name": "Dandora Area I",
+              "constituencyName": "Embakasi North"
+            },
+            {
+              "id": "1413",
+              "name": "Dandora Area Ii",
+              "constituencyName": "Embakasi North"
+            },
+            {
+              "id": "1414",
+              "name": "Dandora Area Iii",
+              "constituencyName": "Embakasi North"
+            },
+            {
+              "id": "1415",
+              "name": "Dandora Area Iv",
+              "constituencyName": "Embakasi North"
+            },
             {
               "id": "1406",
               "name": "Imara Daima",
               "constituencyName": "Embakasi South"
+            },
+            {
+              "id": "1411",
+              "name": "Kariobangi North",
+              "constituencyName": "Embakasi North"
             },
             {
               "id": "1407",
@@ -9513,12 +10948,27 @@
         },
         {
           "name": "Embakasi West Sub County",
-          "matchedWardCount": 4,
+          "matchedWardCount": 9,
           "wards": [
+            {
+              "id": "1423",
+              "name": "Embakasi",
+              "constituencyName": "Embakasi East"
+            },
             {
               "id": "1429",
               "name": "Kariobangi South",
               "constituencyName": "Embakasi West"
+            },
+            {
+              "id": "1422",
+              "name": "Lower Savannah",
+              "constituencyName": "Embakasi East"
+            },
+            {
+              "id": "1425",
+              "name": "Mihango",
+              "constituencyName": "Embakasi East"
             },
             {
               "id": "1428",
@@ -9534,6 +10984,16 @@
               "id": "1427",
               "name": "Umoja Ii",
               "constituencyName": "Embakasi West"
+            },
+            {
+              "id": "1421",
+              "name": "Upper Savannah",
+              "constituencyName": "Embakasi East"
+            },
+            {
+              "id": "1424",
+              "name": "Utawala",
+              "constituencyName": "Embakasi East"
             }
           ]
         },
@@ -9632,8 +11092,34 @@
         },
         {
           "name": "Lang'Ata Sub County ",
-          "matchedWardCount": 0,
-          "wards": []
+          "matchedWardCount": 5,
+          "wards": [
+            {
+              "id": "1381",
+              "name": "Karen",
+              "constituencyName": "Langata"
+            },
+            {
+              "id": "1383",
+              "name": "Mugumo-Ini",
+              "constituencyName": "Langata"
+            },
+            {
+              "id": "1382",
+              "name": "Nairobi West",
+              "constituencyName": "Langata"
+            },
+            {
+              "id": "1385",
+              "name": "Nyayo Highrise",
+              "constituencyName": "Langata"
+            },
+            {
+              "id": "1384",
+              "name": "South-C",
+              "constituencyName": "Langata"
+            }
+          ]
         },
         {
           "name": "Makadara Sub County",
@@ -10324,12 +11810,27 @@
         },
         {
           "name": "Kuresoi North",
-          "matchedWardCount": 4,
+          "matchedWardCount": 8,
           "wards": [
+            {
+              "id": "849",
+              "name": "Amalo",
+              "constituencyName": "Kuresoi South"
+            },
             {
               "id": "856",
               "name": "Kamara",
               "constituencyName": "Kuresoi North"
+            },
+            {
+              "id": "850",
+              "name": "Keringet",
+              "constituencyName": "Kuresoi South"
+            },
+            {
+              "id": "851",
+              "name": "Kiptagich",
+              "constituencyName": "Kuresoi South"
             },
             {
               "id": "853",
@@ -10345,17 +11846,27 @@
               "id": "855",
               "name": "Sirikwa",
               "constituencyName": "Kuresoi North"
+            },
+            {
+              "id": "852",
+              "name": "Tinet",
+              "constituencyName": "Kuresoi South"
             }
           ]
         },
         {
           "name": "Kuresoi South",
-          "matchedWardCount": 4,
+          "matchedWardCount": 8,
           "wards": [
             {
               "id": "849",
               "name": "Amalo",
               "constituencyName": "Kuresoi South"
+            },
+            {
+              "id": "856",
+              "name": "Kamara",
+              "constituencyName": "Kuresoi North"
             },
             {
               "id": "850",
@@ -10366,6 +11877,21 @@
               "id": "851",
               "name": "Kiptagich",
               "constituencyName": "Kuresoi South"
+            },
+            {
+              "id": "853",
+              "name": "Kiptororo",
+              "constituencyName": "Kuresoi North"
+            },
+            {
+              "id": "854",
+              "name": "Nyota",
+              "constituencyName": "Kuresoi North"
+            },
+            {
+              "id": "855",
+              "name": "Sirikwa",
+              "constituencyName": "Kuresoi North"
             },
             {
               "id": "852",
@@ -10448,8 +11974,13 @@
         },
         {
           "name": "Nakuru Town East",
-          "matchedWardCount": 5,
+          "matchedWardCount": 11,
           "wards": [
+            {
+              "id": "870",
+              "name": "Barut",
+              "constituencyName": "Nakuru Town West"
+            },
             {
               "id": "876",
               "name": "Biashara",
@@ -10459,32 +11990,6 @@
               "id": "878",
               "name": "Flamingo",
               "constituencyName": "Nakuru Town East"
-            },
-            {
-              "id": "877",
-              "name": "Kivumbini",
-              "constituencyName": "Nakuru Town East"
-            },
-            {
-              "id": "879",
-              "name": "Menengai",
-              "constituencyName": "Nakuru Town East"
-            },
-            {
-              "id": "880",
-              "name": "Nakuru East",
-              "constituencyName": "Nakuru Town East"
-            }
-          ]
-        },
-        {
-          "name": "Nakuru Town West",
-          "matchedWardCount": 6,
-          "wards": [
-            {
-              "id": "870",
-              "name": "Barut",
-              "constituencyName": "Nakuru Town West"
             },
             {
               "id": "873",
@@ -10497,9 +12002,85 @@
               "constituencyName": "Nakuru Town West"
             },
             {
+              "id": "877",
+              "name": "Kivumbini",
+              "constituencyName": "Nakuru Town East"
+            },
+            {
               "id": "871",
               "name": "London",
               "constituencyName": "Nakuru Town West"
+            },
+            {
+              "id": "879",
+              "name": "Menengai",
+              "constituencyName": "Nakuru Town East"
+            },
+            {
+              "id": "880",
+              "name": "Nakuru East",
+              "constituencyName": "Nakuru Town East"
+            },
+            {
+              "id": "874",
+              "name": "Rhoda",
+              "constituencyName": "Nakuru Town West"
+            },
+            {
+              "id": "875",
+              "name": "Shaabab",
+              "constituencyName": "Nakuru Town West"
+            }
+          ]
+        },
+        {
+          "name": "Nakuru Town West",
+          "matchedWardCount": 11,
+          "wards": [
+            {
+              "id": "870",
+              "name": "Barut",
+              "constituencyName": "Nakuru Town West"
+            },
+            {
+              "id": "876",
+              "name": "Biashara",
+              "constituencyName": "Nakuru Town East"
+            },
+            {
+              "id": "878",
+              "name": "Flamingo",
+              "constituencyName": "Nakuru Town East"
+            },
+            {
+              "id": "873",
+              "name": "Kapkures",
+              "constituencyName": "Nakuru Town West"
+            },
+            {
+              "id": "872",
+              "name": "Kaptembwo",
+              "constituencyName": "Nakuru Town West"
+            },
+            {
+              "id": "877",
+              "name": "Kivumbini",
+              "constituencyName": "Nakuru Town East"
+            },
+            {
+              "id": "871",
+              "name": "London",
+              "constituencyName": "Nakuru Town West"
+            },
+            {
+              "id": "879",
+              "name": "Menengai",
+              "constituencyName": "Nakuru Town East"
+            },
+            {
+              "id": "880",
+              "name": "Nakuru East",
+              "constituencyName": "Nakuru Town East"
             },
             {
               "id": "874",
@@ -11021,13 +12602,55 @@
         },
         {
           "name": "Namdi Hills",
-          "matchedWardCount": 0,
-          "wards": []
+          "matchedWardCount": 4,
+          "wards": [
+            {
+              "id": "762",
+              "name": "Chepkunyuk",
+              "constituencyName": "Nandi Hills"
+            },
+            {
+              "id": "764",
+              "name": "Kapchorua",
+              "constituencyName": "Nandi Hills"
+            },
+            {
+              "id": "761",
+              "name": "Nandi Hills",
+              "constituencyName": "Nandi Hills"
+            },
+            {
+              "id": "763",
+              "name": "Ol'Lessos",
+              "constituencyName": "Nandi Hills"
+            }
+          ]
         },
         {
           "name": "Tindiret",
-          "matchedWardCount": 0,
-          "wards": []
+          "matchedWardCount": 4,
+          "wards": [
+            {
+              "id": "753",
+              "name": "Chemelil/Chemase",
+              "constituencyName": "Tinderet"
+            },
+            {
+              "id": "754",
+              "name": "Kapsimotwo",
+              "constituencyName": "Tinderet"
+            },
+            {
+              "id": "751",
+              "name": "Songhor/Soba",
+              "constituencyName": "Tinderet"
+            },
+            {
+              "id": "752",
+              "name": "Tindiret",
+              "constituencyName": "Tinderet"
+            }
+          ]
         }
       ],
       "wards": [
@@ -11190,7 +12813,7 @@
       "subCounties": [
         {
           "name": "Narok East",
-          "matchedWardCount": 4,
+          "matchedWardCount": 8,
           "wards": [
             {
               "id": "898",
@@ -11198,14 +12821,34 @@
               "constituencyName": "Narok East"
             },
             {
+              "id": "907",
+              "name": "Ilmotiok",
+              "constituencyName": "Narok West"
+            },
+            {
               "id": "899",
               "name": "Keekonyokie",
               "constituencyName": "Narok East"
             },
             {
+              "id": "908",
+              "name": "Mara",
+              "constituencyName": "Narok West"
+            },
+            {
               "id": "897",
               "name": "Mosiro",
               "constituencyName": "Narok East"
+            },
+            {
+              "id": "910",
+              "name": "Naikarra",
+              "constituencyName": "Narok West"
+            },
+            {
+              "id": "909",
+              "name": "Siana",
+              "constituencyName": "Narok West"
             },
             {
               "id": "900",
@@ -11288,17 +12931,32 @@
         },
         {
           "name": "Narok West",
-          "matchedWardCount": 4,
+          "matchedWardCount": 8,
           "wards": [
+            {
+              "id": "898",
+              "name": "Ildamat",
+              "constituencyName": "Narok East"
+            },
             {
               "id": "907",
               "name": "Ilmotiok",
               "constituencyName": "Narok West"
             },
             {
+              "id": "899",
+              "name": "Keekonyokie",
+              "constituencyName": "Narok East"
+            },
+            {
               "id": "908",
               "name": "Mara",
               "constituencyName": "Narok West"
+            },
+            {
+              "id": "897",
+              "name": "Mosiro",
+              "constituencyName": "Narok East"
             },
             {
               "id": "910",
@@ -11309,6 +12967,11 @@
               "id": "909",
               "name": "Siana",
               "constituencyName": "Narok West"
+            },
+            {
+              "id": "900",
+              "name": "Suswa",
+              "constituencyName": "Narok East"
             }
           ]
         },
@@ -12070,8 +13733,29 @@
         },
         {
           "name": "Mkurweni",
-          "matchedWardCount": 0,
-          "wards": []
+          "matchedWardCount": 4,
+          "wards": [
+            {
+              "id": "487",
+              "name": "Gikondi",
+              "constituencyName": "Mukurweini"
+            },
+            {
+              "id": "490",
+              "name": "Mukurwe-Ini Central",
+              "constituencyName": "Mukurweini"
+            },
+            {
+              "id": "489",
+              "name": "Mukurwe-Ini West",
+              "constituencyName": "Mukurweini"
+            },
+            {
+              "id": "488",
+              "name": "Rugi",
+              "constituencyName": "Mukurweini"
+            }
+          ]
         },
         {
           "name": "Nyeri Town",
@@ -12312,8 +13996,33 @@
       "subCounties": [
         {
           "name": "Samburu East",
-          "matchedWardCount": 4,
+          "matchedWardCount": 9,
           "wards": [
+            {
+              "id": "661",
+              "name": "Lodokejek",
+              "constituencyName": "Samburu West"
+            },
+            {
+              "id": "664",
+              "name": "Loosuk",
+              "constituencyName": "Samburu West"
+            },
+            {
+              "id": "663",
+              "name": "Maralal",
+              "constituencyName": "Samburu West"
+            },
+            {
+              "id": "665",
+              "name": "Poro",
+              "constituencyName": "Samburu West"
+            },
+            {
+              "id": "662",
+              "name": "Suguta Marmar",
+              "constituencyName": "Samburu West"
+            },
             {
               "id": "674",
               "name": "Wamba East",
@@ -12374,7 +14083,7 @@
         },
         {
           "name": "Samburu West",
-          "matchedWardCount": 5,
+          "matchedWardCount": 9,
           "wards": [
             {
               "id": "661",
@@ -12400,6 +14109,26 @@
               "id": "662",
               "name": "Suguta Marmar",
               "constituencyName": "Samburu West"
+            },
+            {
+              "id": "674",
+              "name": "Wamba East",
+              "constituencyName": "Samburu East"
+            },
+            {
+              "id": "675",
+              "name": "Wamba North",
+              "constituencyName": "Samburu East"
+            },
+            {
+              "id": "673",
+              "name": "Wamba West",
+              "constituencyName": "Samburu East"
+            },
+            {
+              "id": "672",
+              "name": "Waso",
+              "constituencyName": "Samburu East"
             }
           ]
         }
@@ -13766,8 +15495,18 @@
         },
         {
           "name": "Turkana East",
-          "matchedWardCount": 3,
+          "matchedWardCount": 10,
           "wards": [
+            {
+              "id": "617",
+              "name": "Kakuma",
+              "constituencyName": "Turkana West"
+            },
+            {
+              "id": "621",
+              "name": "Kalobeyei",
+              "constituencyName": "Turkana West"
+            },
             {
               "id": "638",
               "name": "Kapedo/Napeitom",
@@ -13779,15 +15518,40 @@
               "constituencyName": "Turkana East"
             },
             {
+              "id": "619",
+              "name": "Letea",
+              "constituencyName": "Turkana West"
+            },
+            {
+              "id": "622",
+              "name": "Lokichoggio",
+              "constituencyName": "Turkana West"
+            },
+            {
               "id": "640",
               "name": "Lokori/Kochodin",
               "constituencyName": "Turkana East"
+            },
+            {
+              "id": "618",
+              "name": "Lopur",
+              "constituencyName": "Turkana West"
+            },
+            {
+              "id": "623",
+              "name": "Nanaam",
+              "constituencyName": "Turkana West"
+            },
+            {
+              "id": "620",
+              "name": "Songot",
+              "constituencyName": "Turkana West"
             }
           ]
         },
         {
           "name": "Turkana North",
-          "matchedWardCount": 6,
+          "matchedWardCount": 11,
           "wards": [
             {
               "id": "614",
@@ -13798,6 +15562,21 @@
               "id": "611",
               "name": "Kaeris",
               "constituencyName": "Turkana North"
+            },
+            {
+              "id": "636",
+              "name": "Kalapata",
+              "constituencyName": "Turkana South"
+            },
+            {
+              "id": "633",
+              "name": "Kaputir",
+              "constituencyName": "Turkana South"
+            },
+            {
+              "id": "634",
+              "name": "Katilu",
+              "constituencyName": "Turkana South"
             },
             {
               "id": "615",
@@ -13815,6 +15594,16 @@
               "constituencyName": "Turkana North"
             },
             {
+              "id": "635",
+              "name": "Lobokat",
+              "constituencyName": "Turkana South"
+            },
+            {
+              "id": "637",
+              "name": "Lokichar",
+              "constituencyName": "Turkana South"
+            },
+            {
               "id": "616",
               "name": "Nakalale",
               "constituencyName": "Turkana North"
@@ -13823,8 +15612,18 @@
         },
         {
           "name": "Turkana South",
-          "matchedWardCount": 5,
+          "matchedWardCount": 11,
           "wards": [
+            {
+              "id": "614",
+              "name": "Kaaleng/Kaikor",
+              "constituencyName": "Turkana North"
+            },
+            {
+              "id": "611",
+              "name": "Kaeris",
+              "constituencyName": "Turkana North"
+            },
             {
               "id": "636",
               "name": "Kalapata",
@@ -13841,6 +15640,21 @@
               "constituencyName": "Turkana South"
             },
             {
+              "id": "615",
+              "name": "Kibish",
+              "constituencyName": "Turkana North"
+            },
+            {
+              "id": "612",
+              "name": "Lake Zone",
+              "constituencyName": "Turkana North"
+            },
+            {
+              "id": "613",
+              "name": "Lapur",
+              "constituencyName": "Turkana North"
+            },
+            {
               "id": "635",
               "name": "Lobokat",
               "constituencyName": "Turkana South"
@@ -13849,6 +15663,11 @@
               "id": "637",
               "name": "Lokichar",
               "constituencyName": "Turkana South"
+            },
+            {
+              "id": "616",
+              "name": "Nakalale",
+              "constituencyName": "Turkana North"
             }
           ]
         }
@@ -14699,12 +16518,27 @@
         },
         {
           "name": "Wajir East",
-          "matchedWardCount": 4,
+          "matchedWardCount": 8,
           "wards": [
+            {
+              "id": "178",
+              "name": "Ademasajide",
+              "constituencyName": "Wajir West"
+            },
+            {
+              "id": "176",
+              "name": "Arbajahan",
+              "constituencyName": "Wajir West"
+            },
             {
               "id": "170",
               "name": "Barwago",
               "constituencyName": "Wajir East"
+            },
+            {
+              "id": "177",
+              "name": "Hadado/Athibohol",
+              "constituencyName": "Wajir West"
             },
             {
               "id": "171",
@@ -14715,6 +16549,11 @@
               "id": "169",
               "name": "Township",
               "constituencyName": "Wajir East"
+            },
+            {
+              "id": "179",
+              "name": "Wagalla/Ganyure",
+              "constituencyName": "Wajir West"
             },
             {
               "id": "168",
@@ -14807,7 +16646,7 @@
         },
         {
           "name": "Wajir West",
-          "matchedWardCount": 4,
+          "matchedWardCount": 8,
           "wards": [
             {
               "id": "178",
@@ -14820,14 +16659,34 @@
               "constituencyName": "Wajir West"
             },
             {
+              "id": "170",
+              "name": "Barwago",
+              "constituencyName": "Wajir East"
+            },
+            {
               "id": "177",
               "name": "Hadado/Athibohol",
               "constituencyName": "Wajir West"
             },
             {
+              "id": "171",
+              "name": "Khorof/Harar",
+              "constituencyName": "Wajir East"
+            },
+            {
+              "id": "169",
+              "name": "Township",
+              "constituencyName": "Wajir East"
+            },
+            {
               "id": "179",
               "name": "Wagalla/Ganyure",
               "constituencyName": "Wajir West"
+            },
+            {
+              "id": "168",
+              "name": "Wagberi",
+              "constituencyName": "Wajir East"
             }
           ]
         }

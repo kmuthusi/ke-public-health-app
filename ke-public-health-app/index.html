@@ -28,6 +28,26 @@
             A briefing-oriented interface for tracking live public-health source coverage, alerts, advisory context,
             outbreak-linked signals, and local actions across Kenya.
           </p>
+          <div class="view-switcher" role="tablist" aria-label="Dashboard view">
+            <button
+              id="localViewButton"
+              class="view-switcher-button is-active"
+              type="button"
+              role="tab"
+              aria-selected="true"
+            >
+              Local View
+            </button>
+            <button
+              id="nationalViewButton"
+              class="view-switcher-button"
+              type="button"
+              role="tab"
+              aria-selected="false"
+            >
+              National Picture
+            </button>
+          </div>
         </div>
         <div class="command-meta">
           <span id="lastUpdatedBadge" class="pill">Awaiting live fetch</span>
@@ -131,10 +151,20 @@
             <div class="panel-heading">
               <div>
                 <p class="panel-label">Situation Summary</p>
-                <h2>Why the current posture is shown</h2>
+                <h2>Why the selected location posture is shown</h2>
               </div>
             </div>
             <ul id="reasonList" class="detail-list"></ul>
+          </section>
+
+          <section class="panel national-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="panel-label">National Context</p>
+                <h2>Kenya-wide alerts and operational context</h2>
+              </div>
+            </div>
+            <div id="nationalContextCards" class="card-stack compact"></div>
           </section>
 
           <section class="panel map-panel">
@@ -164,7 +194,7 @@
               </div>
             </div>
             <div id="map"></div>
-            <p class="map-note">
+            <p id="mapNote" class="map-note">
               The operational map shows currently reachable source signals. Point overlays may reflect broader reporting levels when ward-level precision is not available.
             </p>
           </section>
@@ -184,7 +214,7 @@
               <div class="panel-heading">
                 <div>
                   <p class="panel-label">Action Brief</p>
-                  <h2>Recommended actions for this location</h2>
+                  <h2>Recommended actions for the selected location</h2>
                 </div>
               </div>
               <div id="guidanceCards" class="card-stack"></div>

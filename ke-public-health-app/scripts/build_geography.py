@@ -1,15 +1,55 @@
 import csv
+import difflib
 import json
 import os
+import re
 from collections import defaultdict
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, "data")
 
+COUNTY_SUBCOUNTY_ALIASES = {
+    "Garissa": {
+        "Daadab": ["Dadaab"],
+    },
+    "Kilifi": {
+        "Genzw": ["Ganze"],
+    },
+    "Homa Bay": {
+        "Homabay Town": ["Homa Bay Town"],
+    },
+}
+
 
 def normalize_name(value: str) -> str:
-    return " ".join(value.strip().lower().replace("-", " ").split())
+    cleaned = value.strip().lower().replace("-", " ")
+    cleaned = re.sub(r"[^a-z0-9\s]", " ", cleaned)
+    cleaned = re.sub(r"\b(sub county|subcounty|constituency|district)\b", " ", cleaned)
+    return " ".join(cleaned.split())
+
+
+def names_match(left: str, right: str) -> bool:
+    left_norm = normalize_name(left)
+    right_norm = normalize_name(right)
+    if not left_norm or not right_norm:
+        return False
+    if left_norm == right_norm or left_norm in right_norm or right_norm in left_norm:
+        return True
+
+    left_tokens = set(left_norm.split())
+    right_tokens = set(right_norm.split())
+    if left_tokens and right_tokens:
+        overlap = len(left_tokens & right_tokens) / max(min(len(left_tokens), len(right_tokens)), 1)
+        if overlap >= 0.75:
+            return True
+
+    return difflib.SequenceMatcher(None, left_norm, right_norm).ratio() >= 0.84
+
+
+def get_candidate_names(county_name: str, sub_county_name: str) -> list[str]:
+    aliases = COUNTY_SUBCOUNTY_ALIASES.get(county_name, {}).get(sub_county_name, [])
+    return [sub_county_name, *aliases]
 
 
 def load_counties():
@@ -53,11 +93,11 @@ def main():
 
         sub_counties = []
         for sub_county_name in county.get("sub_counties", []):
-            sub_key = normalize_name(sub_county_name)
             matched_wards = []
 
             for constituency_key, constituency_wards in constituency_groups.items():
-                if sub_key == constituency_key or sub_key in constituency_key or constituency_key in sub_key:
+                constituency_name = constituency_wards[0]["constituencyName"]
+                if any(names_match(candidate, constituency_name) for candidate in get_candidate_names(county_name, sub_county_name)):
                     matched_wards.extend(constituency_wards)
 
             sub_counties.append(

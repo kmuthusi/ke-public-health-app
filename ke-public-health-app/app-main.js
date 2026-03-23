@@ -11,6 +11,8 @@ const state = {
 };
 
 const elements = {
+  localViewButton: document.getElementById("localViewButton"),
+  nationalViewButton: document.getElementById("nationalViewButton"),
   countySelect: document.getElementById("countySelect"),
   subCountySelect: document.getElementById("subCountySelect"),
   wardSelect: document.getElementById("wardSelect"),
@@ -33,6 +35,7 @@ const elements = {
   nationalPictureValue: document.getElementById("nationalPictureValue"),
   locationValue: document.getElementById("locationValue"),
   reasonList: document.getElementById("reasonList"),
+  nationalContextCards: document.getElementById("nationalContextCards"),
   timeline: document.getElementById("timeline"),
   guidanceCards: document.getElementById("guidanceCards"),
   diseaseGrid: document.getElementById("diseaseGrid"),
@@ -44,6 +47,7 @@ const elements = {
   reportForm: document.getElementById("reportForm"),
   reportList: document.getElementById("reportList"),
   lastUpdatedBadge: document.getElementById("lastUpdatedBadge"),
+  mapNote: document.getElementById("mapNote"),
 };
 
 function loadReports() {
@@ -154,7 +158,9 @@ function updateSelectorState() {
     elements.subCountyHelper.textContent = "Select a county first.";
     elements.wardHelper.textContent = "Select a county first.";
     elements.selectorStatus.textContent =
-      "Choose a county to begin. County-wide view is available even without sub-county or ward selection.";
+      elements.layerFilter.value === "national"
+        ? "National Picture can be loaded without choosing a county. Select a county anytime to return to local monitoring."
+        : "Choose a county to begin. County-wide view is available even without sub-county or ward selection.";
     return;
   }
 
@@ -198,6 +204,40 @@ function writeUrlState() {
   window.history.replaceState({}, "", nextUrl);
 }
 
+function getSelectionLabel() {
+  const parts = [state.selectedWard, state.selectedSubCounty, state.selectedCounty].filter(Boolean);
+  return parts.length ? parts.join(", ") : "Kenya";
+}
+
+function summarizeNationalConfidence(alerts, liveData) {
+  const families = new Set((liveData?.availableSourceFamilies || []).filter(Boolean));
+  if (alerts.length >= 8 && families.size >= 4) return "moderate-high";
+  if (alerts.length >= 4 && families.size >= 2) return "moderate";
+  if (alerts.length) return "limited";
+  return "--";
+}
+
+function buildNationalTopline(liveData) {
+  const alerts = liveData?.nationalAlerts || [];
+  const highCount = alerts.filter((alert) => alert.severity === "high").length;
+  const elevatedCount = alerts.filter((alert) => alert.severity === "elevated").length;
+  const score = Math.min(100, alerts.reduce((total, alert) => {
+    if (alert.severity === "high") return total + 18;
+    if (alert.severity === "elevated") return total + 10;
+    return total + 5;
+  }, 12));
+  const level = highCount ? "high" : elevatedCount >= 2 ? "elevated" : alerts.length ? "guarded" : "neutral";
+
+  return {
+    heading: alerts.length ? "Kenya national picture in view" : "Kenya national picture ready",
+    level,
+    levelLabel: alerts.length ? `${level} national context` : "No data",
+    score: alerts.length ? String(score) : "--",
+    confidence: summarizeNationalConfidence(alerts, liveData),
+    freshness: liveData?.generatedAt ? "current" : "--",
+  };
+}
+
 function initializeMap() {
   state.map = L.map("map", { zoomControl: true, minZoom: 5 }).setView([0.0236, 37.9062], 6);
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -224,29 +264,80 @@ function renderReasons(reasons) {
   });
 }
 
-function buildNationalReasons(liveData) {
-  const nationalAlerts = liveData?.nationalAlerts || [];
+function renderNationalContext(liveData) {
+  clearChildren(elements.nationalContextCards);
+  const alerts = liveData?.nationalAlerts || [];
   const families = liveData?.availableSourceFamilies || [];
-  const categories = liveData?.availableSourceCategories || [];
-  if (!nationalAlerts.length) {
-    return ["No national picture alerts were available in the latest fetch."];
-  }
+  const topDiseases = [...new Set(alerts.map((alert) => alert.disease).filter(Boolean))];
+  const topTitles = alerts.slice(0, 3).map((alert) => alert.title);
+  const nationalMode = elements.layerFilter.value === "national";
 
-  const topDiseases = [...new Set(nationalAlerts.map((alert) => alert.disease).filter(Boolean))].slice(0, 3);
-  return [
-    `${nationalAlerts.length} national alert signal${nationalAlerts.length === 1 ? "" : "s"} are in the current national picture layer.`,
-    families.length ? `Current national context is being drawn from ${families.join(", ")}.` : "National context is being drawn from currently reachable source families.",
-    categories.length ? `The visible national alerts span ${categories.join(", ")} reporting categories.` : "The visible national alerts span multiple reporting categories.",
-    topDiseases.length
-      ? `National disease watch is currently emphasizing ${topDiseases.join(", ")}.`
-      : "The current national layer is dominated by general public-health and advisory signals.",
-  ];
+  const cards = !liveData
+    ? [
+        {
+          title: "National picture ready",
+          body: "Use the National Picture tab above to load Kenya-wide context even before choosing a county.",
+        },
+      ]
+    : [
+        {
+          title: "National picture status",
+          body: alerts.length
+            ? `${alerts.length} Kenya-wide alert signal${alerts.length === 1 ? "" : "s"} are available from ${
+                families.join(", ") || "currently reachable source families"
+              }.`
+            : "No national alert signals were returned in the latest fetch.",
+        },
+        {
+          title: "National disease watch",
+          body: topDiseases.length
+            ? `Current national themes: ${topDiseases.slice(0, 4).join(", ")}.`
+            : "Current national context is dominated by general advisories rather than disease-specific signals.",
+        },
+        {
+          title: nationalMode ? "National layer is active" : "National layer is available",
+          body: nationalMode
+            ? "The map and update feed are currently showing Kenya-wide national context."
+            : "Switch to National Picture to inspect Kenya-wide signals on the map and update feed.",
+        },
+      ];
+
+  cards.forEach((card) => {
+    const node = document.createElement("article");
+    node.className = "coverage-summary-card";
+    node.innerHTML = `<strong>${card.title}</strong><p class="stack-meta">${card.body}</p>`;
+    elements.nationalContextCards.append(node);
+  });
+
+  if (topTitles.length) {
+    const recentNode = document.createElement("article");
+    recentNode.className = "stack-card";
+    recentNode.innerHTML = `
+      <div class="stack-title">
+        <strong>Recent national signals</strong>
+        <span class="pill pill-muted">${alerts.length} total</span>
+      </div>
+      <ul class="detail-list">${topTitles.map((title) => `<li>${title}</li>`).join("")}</ul>
+    `;
+    elements.nationalContextCards.append(recentNode);
+  }
+}
+
+function syncViewSwitcher() {
+  const nationalMode = elements.layerFilter.value === "national";
+  elements.localViewButton.classList.toggle("is-active", !nationalMode);
+  elements.localViewButton.setAttribute("aria-selected", String(!nationalMode));
+  elements.nationalViewButton.classList.toggle("is-active", nationalMode);
+  elements.nationalViewButton.setAttribute("aria-selected", String(nationalMode));
 }
 
 function renderTimeline(alerts) {
   clearChildren(elements.timeline);
   if (!alerts?.length) {
-    elements.timeline.innerHTML = '<div class="timeline-item">No live updates loaded yet. Load a county to see currently reachable source updates.</div>';
+    elements.timeline.innerHTML =
+      elements.layerFilter.value === "national"
+        ? '<div class="timeline-item">No Kenya-wide alerts are loaded yet. Open National Picture or refresh live sources to inspect national updates.</div>'
+        : '<div class="timeline-item">No live updates loaded yet. Select a county and load current live sources to inspect local updates.</div>';
     return;
   }
   const sourceFilter = elements.sourceFilter.value;
@@ -286,10 +377,10 @@ function getDisplayedAlerts(liveData) {
   return combinedAlerts;
 }
 
-function renderGuidance(cards) {
+function renderGuidance(cards, emptyMessage = "No guidance available yet. Guidance appears after current live signals are loaded.") {
   clearChildren(elements.guidanceCards);
   if (!cards?.length) {
-    elements.guidanceCards.innerHTML = '<div class="stack-card">No guidance available yet. Guidance appears after current live signals are loaded.</div>';
+    elements.guidanceCards.innerHTML = `<div class="stack-card">${emptyMessage}</div>`;
     return;
   }
   cards.forEach((card) => {
@@ -315,53 +406,7 @@ function renderGuidance(cards) {
   });
 }
 
-function buildNationalGuidance(liveData) {
-  const alerts = liveData?.nationalAlerts || [];
-  const diseases = [...new Set(alerts.map((alert) => alert.disease).filter(Boolean))];
-  const sourceFamilies = [...new Set(alerts.map((alert) => alert.sourceFamily).filter(Boolean))];
-  const topSeverities = alerts.map((alert) => alert.severity || "guarded");
-  const highSeverityPresent = topSeverities.includes("high");
-  const elevatedSeverityPresent = topSeverities.includes("elevated");
-
-  if (!alerts.length) {
-    return [
-      {
-        disease: "National picture guidance",
-        scope: "Kenya national context",
-        actions: [
-          "No national alert signals were returned in the latest fetch. Continue monitoring official source health and refresh again shortly.",
-          "Use county and sub-county views for local operational decisions while national context is sparse.",
-        ],
-        sourceType: "National cross-source summary",
-        note: "This card appears because the National Picture layer is active but no national alerts were returned in the latest fetch.",
-      },
-    ];
-  }
-
-  return [
-    {
-      disease: "National picture guidance",
-      scope: "Kenya national context",
-      actions: [
-        "Use this layer for situational awareness across Kenya, then verify any action with county-specific and MOH guidance before local deployment.",
-        highSeverityPresent
-          ? "Prioritize reviewing high-severity signals and escalate for operational review where county guidance aligns."
-          : elevatedSeverityPresent
-            ? "Review elevated national signals and monitor for county-level confirmation before changing local posture."
-            : "Continue routine monitoring and refresh for newer official alerts if operational decisions depend on freshness.",
-        diseases.length
-          ? `Focus the next review on ${diseases.slice(0, 3).join(", ")} and related advisories in the current national feed.`
-          : "Focus the next review on general advisories and source coverage because no disease-specific national alerts were exposed.",
-      ],
-      sourceType: "National cross-source summary",
-      note: `The National Picture layer is active, so the action brief is being summarized from ${alerts.length} national alert signal${
-        alerts.length === 1 ? "" : "s"
-      } across ${sourceFamilies.join(", ") || "currently reachable source families"}.`,
-    },
-  ];
-}
-
-function renderDiseaseGrid(alerts) {
+function renderDiseaseGrid(alerts, emptyMessage = "No disease-specific signals directly matched the selected location in the latest fetch.") {
   clearChildren(elements.diseaseGrid);
   const grouped = new Map();
   alerts?.forEach((alert) => {
@@ -371,7 +416,7 @@ function renderDiseaseGrid(alerts) {
   });
 
   if (!grouped.size) {
-    elements.diseaseGrid.innerHTML = '<article class="disease-card">No disease-specific signals directly matched this selected location in the latest fetch.</article>';
+    elements.diseaseGrid.innerHTML = `<article class="disease-card">${emptyMessage}</article>`;
     return;
   }
 
@@ -392,7 +437,16 @@ function renderDiseaseGrid(alerts) {
   }
 }
 
-function renderFacilities(facilities) {
+function renderFacilities(facilities, options = {}) {
+  const { hasLocalSelection = true } = options;
+  if (!hasLocalSelection) {
+    elements.facilityStatus.textContent = "Choose a county to load local service access and facility context.";
+    clearChildren(elements.facilityList);
+    elements.facilityList.innerHTML =
+      '<div class="stack-card">Facility access remains location-specific. Select a county to query nearby service context.</div>';
+    return;
+  }
+
   elements.facilityStatus.textContent =
     facilities?.status === "ok"
       ? `Live facility adapter status: ok${facilities.source ? ` | ${facilities.source}` : ""}`
@@ -468,7 +522,7 @@ function renderCoverageSummary(liveData) {
 
 function renderBulletin(bulletin) {
   if (!bulletin) {
-    elements.bulletinContent.innerHTML = "<p>Load a location to generate a bulletin summary from currently reachable sources.</p>";
+    elements.bulletinContent.innerHTML = "<p>Select a county and load live sources to generate a local bulletin summary.</p>";
     return;
   }
   elements.bulletinContent.innerHTML = `
@@ -479,41 +533,10 @@ function renderBulletin(bulletin) {
   `;
 }
 
-function buildNationalBulletin(liveData) {
-  const alerts = liveData?.nationalAlerts || [];
-  const locationLabel = liveData?.location?.label || "Selected location";
-  const diseases = [...new Set(alerts.map((alert) => alert.disease).filter(Boolean))];
-  const families = [...new Set(alerts.map((alert) => alert.sourceFamily).filter(Boolean))];
-
-  if (!alerts.length) {
-    return {
-      headline: `National picture bulletin for ${locationLabel}`,
-      summary: [
-        "No national alert signals were returned in the latest fetch.",
-        "Continue using county-specific operational view and refresh again for updated source coverage.",
-      ],
-      actions: [
-        "Check source health to confirm which upstream feeds are reachable.",
-        "Use local matched signals for immediate operational decisions.",
-      ],
-    };
-  }
-
-  return {
-    headline: `National picture bulletin for ${locationLabel}`,
-    summary: [
-      `${alerts.length} national alert signal${alerts.length === 1 ? "" : "s"} are in view from ${families.join(", ") || "current reachable sources"}.`,
-      diseases.length
-        ? `Primary disease themes in the current national picture are ${diseases.slice(0, 4).join(", ")}.`
-        : "The current national picture is driven mainly by general public-health advisories and broad alerts.",
-      "Use this briefing for situational awareness and verify local action through county or MOH guidance before field deployment.",
-    ],
-    actions: [
-      "Review the timeline and map for the current national layer.",
-      "Refresh local matched view to compare national context against selected county conditions.",
-      "Escalate only after confirming that national signals are relevant to the local operational area.",
-    ],
-  };
+function clearLiveDataForSelectionChange() {
+  if (!state.liveData) return;
+  state.liveData = null;
+  renderLiveData();
 }
 
 function renderReports() {
@@ -575,15 +598,22 @@ function updateMap(liveData) {
     state.map.setView([0.0236, 37.9062], 6);
   }
 
+  let mappedAlertCount = 0;
+  let skippedAlertCount = 0;
   const alerts = getDisplayedAlerts(liveData)
     .filter((item) => elements.sourceFilter.value === "all" || item.sourceFamily === elements.sourceFilter.value)
     .filter((item) => elements.severityFilter.value === "all" || item.severity === elements.severityFilter.value)
     .filter((item) => elements.diseaseFilter.value === "all" || item.disease === elements.diseaseFilter.value);
 
-  alerts.forEach((alert, index) => {
-    if (!center?.lat || !center?.lon) return;
-    const lat = center.lat + (index % 3) * 0.06 - 0.06;
-    const lon = center.lon + Math.floor(index / 3) * 0.06 - 0.06;
+  alerts.forEach((alert) => {
+    const lat = Number(alert.lat);
+    const lon = Number(alert.lon);
+    if (!Number.isFinite(lat) || !Number.isFinite(lon)) {
+      skippedAlertCount += 1;
+      return;
+    }
+
+    mappedAlertCount += 1;
     L.circleMarker([lat, lon], {
       radius: 9,
       color: alert.severity === "high" ? "#bf4b2c" : alert.severity === "elevated" ? "#db7c26" : "#0d8c6c",
@@ -599,8 +629,10 @@ function updateMap(liveData) {
   });
 
   const facilities = liveData?.facilities?.items || [];
+  let mappedFacilityCount = 0;
   facilities.slice(0, 8).forEach((facility) => {
     if (!facility.lat || !facility.lon) return;
+    mappedFacilityCount += 1;
     L.circleMarker([Number(facility.lat), Number(facility.lon)], {
       radius: 6,
       color: "#16302b",
@@ -611,38 +643,80 @@ function updateMap(liveData) {
       .addTo(state.markersLayer)
       .bindPopup(`<strong>${facility.name}</strong><br/>${facility.type || "Health facility"}`);
   });
+
+  if (!liveData) {
+    elements.mapNote.textContent =
+      "Load local or national live sources to view mapped alerts. Signals without reliable coordinates are not plotted.";
+    return;
+  }
+
+  elements.mapNote.textContent = mappedAlertCount || mappedFacilityCount
+    ? `Showing ${mappedAlertCount} mapped alert signal${mappedAlertCount === 1 ? "" : "s"} and ${mappedFacilityCount} mapped facilit${
+        mappedFacilityCount === 1 ? "y" : "ies"
+      }. ${skippedAlertCount ? `${skippedAlertCount} alert signal${skippedAlertCount === 1 ? "" : "s"} were withheld from the map because no reliable coordinates were exposed.` : "Only signals with reliable coordinates are plotted."}`
+    : `No currently displayed alerts exposed reliable coordinates for mapping. ${skippedAlertCount ? `${skippedAlertCount} alert signal${skippedAlertCount === 1 ? "" : "s"} were withheld from the map instead of being plotted synthetically.` : ""}`;
 }
 
 function renderLiveData() {
   const liveData = state.liveData;
-  const risk = liveData?.risk;
+  const hasLocalSelection = Boolean(state.selectedCounty);
+  const risk = hasLocalSelection ? liveData?.risk : null;
   const mode = elements.layerFilter.value;
   const displayedAlerts = getDisplayedAlerts(liveData);
   const nationalMode = mode === "national";
+  const locationLabel = hasLocalSelection ? getSelectionLabel() : nationalMode ? "Kenya" : "--";
+  const nationalTopline = !hasLocalSelection && nationalMode ? buildNationalTopline(liveData) : null;
 
-  elements.riskHeading.textContent = risk ? `${risk.level.toUpperCase()} risk watch for ${liveData.location.label}` : "Choose a location to begin";
-  elements.riskLevelBadge.className = `status-badge ${risk?.level || "neutral"}`;
-  elements.riskLevelBadge.textContent = risk?.level || "No data";
-  elements.riskScore.textContent = risk ? String(risk.score) : "--";
-  elements.confidenceValue.textContent = risk?.confidence || "--";
-  elements.freshnessValue.textContent = risk?.freshness || "--";
+  elements.riskHeading.textContent = risk
+    ? `${risk.level.toUpperCase()} risk watch for ${liveData.location.label}`
+    : nationalTopline
+      ? nationalTopline.heading
+      : hasLocalSelection
+        ? `Select "Load current live sources" to refresh ${locationLabel}`
+        : "Choose a county to load a local location profile";
+  elements.riskLevelBadge.className = `status-badge ${risk?.level || nationalTopline?.level || "neutral"}`;
+  elements.riskLevelBadge.textContent = risk?.level || nationalTopline?.levelLabel || "No data";
+  elements.riskScore.textContent = risk ? String(risk.score) : nationalTopline?.score || "--";
+  elements.confidenceValue.textContent = risk?.confidence || nationalTopline?.confidence || "--";
+  elements.freshnessValue.textContent = risk?.freshness || nationalTopline?.freshness || "--";
   elements.nationalPictureValue.textContent = liveData?.nationalAlerts?.length
     ? `${liveData.nationalAlerts.length} national alert signal${liveData.nationalAlerts.length === 1 ? "" : "s"}`
     : "No national alerts in current view";
   elements.nationalPictureCard.classList.toggle("is-active", nationalMode);
-  elements.locationValue.textContent = liveData?.location?.label || "--";
-  elements.lastUpdatedBadge.textContent = liveData?.generatedAt ? `Current live fetch ${new Date(liveData.generatedAt).toLocaleString()}` : "Awaiting live fetch";
+  syncViewSwitcher();
+  elements.locationValue.textContent = locationLabel;
+  elements.lastUpdatedBadge.textContent = liveData?.generatedAt
+    ? `Current live fetch ${new Date(liveData.generatedAt).toLocaleString()}`
+    : hasLocalSelection
+      ? `Selection changed for ${locationLabel} - reload live sources`
+      : "Awaiting live fetch";
 
-  renderReasons(nationalMode ? buildNationalReasons(liveData) : risk?.reasons || []);
+  renderReasons(
+    risk?.reasons ||
+      (hasLocalSelection
+        ? ["Selection changed. Reload current live sources to update the local situation summary."]
+        : ["Choose a county to load a local situation summary. National context appears separately below."])
+  );
+  renderNationalContext(liveData);
   renderCoverageSummary(liveData);
   renderSourceFilterOptions(liveData);
   renderDiseaseFilterOptions(displayedAlerts);
   renderTimeline(displayedAlerts);
-  renderGuidance(nationalMode ? buildNationalGuidance(liveData) : liveData?.guidance || []);
-  renderDiseaseGrid(nationalMode ? liveData?.nationalAlerts || [] : liveData?.locationMatchedAlerts || []);
-  renderFacilities(liveData?.facilities || null);
+  renderGuidance(
+    hasLocalSelection ? liveData?.guidance || [] : [],
+    hasLocalSelection
+      ? "No guidance is available yet. Reload current live sources for the selected location."
+      : "Local action guidance appears here after you choose a county and load local live sources."
+  );
+  renderDiseaseGrid(
+    hasLocalSelection ? liveData?.locationMatchedAlerts || [] : [],
+    hasLocalSelection
+      ? "No disease-specific signals directly matched the selected location in the latest fetch."
+      : "Threat Watch stays location-specific. Choose a county to inspect disease signals for a selected area."
+  );
+  renderFacilities(hasLocalSelection ? liveData?.facilities || null : null, { hasLocalSelection });
   renderSources(liveData?.sourceStatus || []);
-  renderBulletin(nationalMode ? buildNationalBulletin(liveData) : liveData?.bulletin || null);
+  renderBulletin(hasLocalSelection ? liveData?.bulletin || null : null);
   updateMap(liveData);
 }
 
@@ -668,10 +742,14 @@ async function loadGeography() {
     elements.wardSelect.value = state.selectedWard;
   }
   updateSelectorState();
+  syncViewSwitcher();
 }
 
-async function loadLiveData() {
-  if (!state.selectedCounty) {
+async function loadLiveData(options = {}) {
+  const { allowNationalDefault = false } = options;
+  const requestingNationalDefault = allowNationalDefault && !state.selectedCounty;
+
+  if (!state.selectedCounty && !requestingNationalDefault) {
     window.alert("Please select at least a county first.");
     return;
   }
@@ -681,7 +759,7 @@ async function loadLiveData() {
     ward: state.selectedWard,
   });
   elements.loadButton.disabled = true;
-  elements.loadButton.textContent = "Loading...";
+  elements.loadButton.textContent = requestingNationalDefault ? "Loading Kenya-wide view..." : "Loading...";
   try {
     state.liveData = await fetchJson(`/api/live?${params.toString()}`);
     renderLiveData();
@@ -699,6 +777,7 @@ function handleCountyChange() {
   state.selectedWard = "";
   populateSubCountySelect();
   populateWardSelect();
+  clearLiveDataForSelectionChange();
   updateSelectorState();
   writeUrlState();
 }
@@ -707,12 +786,14 @@ function handleSubCountyChange() {
   state.selectedSubCounty = elements.subCountySelect.value.trim();
   state.selectedWard = "";
   populateWardSelect();
+  clearLiveDataForSelectionChange();
   updateSelectorState();
   writeUrlState();
 }
 
 function handleWardChange() {
   state.selectedWard = elements.wardSelect.value.trim();
+  clearLiveDataForSelectionChange();
   updateSelectorState();
   writeUrlState();
 }
@@ -740,21 +821,42 @@ function toggleBulletinMode() {
   document.body.classList.toggle("bulletin-mode", state.bulletinMode);
 }
 
-function activateNationalPictureView() {
-  if (!state.liveData?.nationalAlerts?.length) return;
+async function activateNationalPictureView() {
   elements.layerFilter.value = "national";
-  renderLiveData();
-  document.querySelector(".map-panel")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  syncViewSwitcher();
+  updateSelectorState();
+  if (!state.liveData) {
+    await loadLiveData({ allowNationalDefault: true });
+  } else {
+    renderLiveData();
+  }
+  document.querySelector(".national-panel")?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function activateLocalView() {
+  elements.layerFilter.value = state.selectedCounty ? "combined" : "local";
+  syncViewSwitcher();
+  updateSelectorState();
+  if (state.liveData) {
+    renderLiveData();
+  }
+  document.querySelector(".control-panel")?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 function attachEventListeners() {
+  elements.localViewButton.addEventListener("click", activateLocalView);
+  elements.nationalViewButton.addEventListener("click", activateNationalPictureView);
   elements.countySelect.addEventListener("change", handleCountyChange);
   elements.subCountySelect.addEventListener("change", handleSubCountyChange);
   elements.wardSelect.addEventListener("change", handleWardChange);
   elements.loadButton.addEventListener("click", loadLiveData);
   elements.reportForm.addEventListener("submit", handleReportSubmit);
   elements.bulletinToggle.addEventListener("click", toggleBulletinMode);
-  elements.layerFilter.addEventListener("change", () => renderLiveData());
+  elements.layerFilter.addEventListener("change", () => {
+    syncViewSwitcher();
+    updateSelectorState();
+    renderLiveData();
+  });
   elements.sourceFilter.addEventListener("change", () => renderLiveData());
   elements.severityFilter.addEventListener("change", () => renderLiveData());
   elements.diseaseFilter.addEventListener("change", () => renderLiveData());
