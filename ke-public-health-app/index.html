@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kenya Public Health Risk Watch</title>
+    <title>Kenya Public Health Operations Watch</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Sans+3:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <link
@@ -20,198 +20,246 @@
   </head>
   <body>
     <div class="page-shell">
-      <header class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">Kenya Public Health Risk Watch</p>
-          <h1>Live Kenya public health awareness with current multi-source coverage and transparent gaps.</h1>
+      <header class="command-header">
+        <div>
+          <p class="eyebrow">Kenya Public Health Operations Watch</p>
+          <h1>Operational location intelligence for county, sub-county, and ward-level public health monitoring.</h1>
           <p class="hero-text">
-            Track current live signals from MOH, WHO, Kenya Red Cross, CDC, and KEMRI, with county-government coverage
-            where available. The app also shows source-health status so unavailable upstream feeds are visible instead of hidden.
+            A briefing-oriented interface for tracking live public-health source coverage, alerts, advisory context,
+            outbreak-linked signals, and local actions across Kenya.
           </p>
-          <div class="hero-meta">
-            <span id="lastUpdatedBadge" class="pill">Awaiting live fetch</span>
-            <span class="pill pill-muted">Official, humanitarian, and research signals kept distinct</span>
-          </div>
         </div>
-        <aside class="selector-card">
-          <h2>Select a location</h2>
-          <label>
-            County
-            <select id="countySelect"></select>
-          </label>
-          <label>
-            Sub-county
-            <select id="subCountySelect"></select>
-          </label>
-          <label>
-            Ward
-            <select id="wardSelect"></select>
-          </label>
-          <div class="selector-actions">
-            <button id="loadButton" class="primary-button">Load current live sources</button>
-            <button id="bulletinToggle" class="secondary-button">Bulletin mode</button>
-          </div>
-          <p class="selector-note">
-            Ward lists use public Kenya administrative references. Where exact sub-county-to-ward matching is incomplete,
-            the app falls back to county-wide ward options and labels the precision. County-government live coverage is currently partial.
-          </p>
-        </aside>
+        <div class="command-meta">
+          <span id="lastUpdatedBadge" class="pill">Awaiting live fetch</span>
+          <span class="pill pill-muted">Operations console</span>
+        </div>
       </header>
 
-      <main class="dashboard-grid">
-        <section class="panel summary-panel">
-          <div class="panel-heading">
-            <div>
-              <p class="panel-label">Live risk scorecard</p>
-              <h2 id="riskHeading">Choose a location to begin</h2>
-            </div>
+      <section class="situation-bar">
+        <article class="situation-card">
+          <span class="metric-label">Location</span>
+          <strong id="locationValue">--</strong>
+        </article>
+        <article class="situation-card">
+          <span class="metric-label">Risk posture</span>
+          <div class="situation-inline">
+            <strong id="riskHeading">Choose a location to begin</strong>
             <span id="riskLevelBadge" class="status-badge neutral">No data</span>
           </div>
-          <div class="summary-grid">
-            <article class="metric-card">
-              <span class="metric-label">Risk score</span>
-              <strong id="riskScore">--</strong>
-            </article>
-            <article class="metric-card">
-              <span class="metric-label">Confidence</span>
-              <strong id="confidenceValue">--</strong>
-            </article>
-            <article class="metric-card">
-              <span class="metric-label">Freshness</span>
-              <strong id="freshnessValue">--</strong>
-            </article>
-            <article class="metric-card">
-              <span class="metric-label">Selected location</span>
-              <strong id="locationValue">--</strong>
-            </article>
-          </div>
-          <div>
-            <h3>Why this level?</h3>
+        </article>
+        <article class="situation-card">
+          <span class="metric-label">Risk score</span>
+          <strong id="riskScore">--</strong>
+        </article>
+        <article class="situation-card">
+          <span class="metric-label">Confidence</span>
+          <strong id="confidenceValue">--</strong>
+        </article>
+        <article class="situation-card">
+          <span class="metric-label">Freshness</span>
+          <strong id="freshnessValue">--</strong>
+        </article>
+        <article
+          id="nationalPictureCard"
+          class="situation-card situation-card-action"
+          role="button"
+          tabindex="0"
+          aria-label="Switch dashboard to national picture view"
+        >
+          <span class="metric-label">National Picture</span>
+          <strong id="nationalPictureValue">--</strong>
+        </article>
+      </section>
+
+      <main class="ops-grid">
+        <aside class="ops-sidebar">
+          <section class="panel control-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="panel-label">Location Controls</p>
+                <h2>Area selection</h2>
+              </div>
+            </div>
+            <label>
+              County
+              <select id="countySelect"></select>
+            </label>
+            <p id="countyHelper" class="selector-help">Start with a county to unlock sub-county and ward filtering.</p>
+            <label>
+              Sub-county
+              <select id="subCountySelect" disabled></select>
+            </label>
+            <p id="subCountyHelper" class="selector-help">Sub-county options become available after a county is selected.</p>
+            <label>
+              Ward
+              <select id="wardSelect" disabled></select>
+            </label>
+            <p id="wardHelper" class="selector-help">Ward options load after county selection and refine further when a matched sub-county ward list exists.</p>
+            <p id="selectorStatus" class="selector-status">Choose a county to begin. County-wide view is available even without sub-county or ward selection.</p>
+            <div class="selector-actions">
+              <button id="loadButton" class="primary-button">Load current live sources</button>
+              <button id="bulletinToggle" class="secondary-button">Bulletin mode</button>
+            </div>
+            <p class="selector-note">
+              Administrative lists are based on public Kenya geography references. Ward mapping may fall back to county-wide options when exact source alignment is unavailable.
+            </p>
+          </section>
+
+          <section class="panel coverage-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="panel-label">Data Coverage</p>
+                <h2>Current source posture</h2>
+              </div>
+            </div>
+            <div id="coverageSummary" class="card-stack compact"></div>
+          </section>
+
+          <section class="panel source-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="panel-label">Source Health</p>
+                <h2>Adapter and feed status</h2>
+              </div>
+            </div>
+            <div id="sourceStatus" class="card-stack compact"></div>
+          </section>
+        </aside>
+
+        <section class="ops-main">
+          <section class="panel overview-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="panel-label">Situation Summary</p>
+                <h2>Why the current posture is shown</h2>
+              </div>
+            </div>
             <ul id="reasonList" class="detail-list"></ul>
-          </div>
-        </section>
+          </section>
 
-        <section class="panel map-panel">
-          <div class="panel-heading">
-            <div>
-              <p class="panel-label">Current alert map</p>
-              <h2>Current health alerts, advisories, outbreak context, and local guidance</h2>
+          <section class="panel map-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="panel-label">Operational Map</p>
+                <h2>Alerts, advisories, facilities, and geographic context</h2>
+              </div>
+              <div class="map-filters">
+                <select id="layerFilter">
+                  <option value="combined">Local + national picture</option>
+                  <option value="local">Local matched only</option>
+                  <option value="national">National picture only</option>
+                </select>
+                <select id="sourceFilter">
+                  <option value="all">All source families</option>
+                </select>
+                <select id="severityFilter">
+                  <option value="all">All severities</option>
+                  <option value="high">High</option>
+                  <option value="elevated">Elevated</option>
+                  <option value="guarded">Guarded</option>
+                </select>
+                <select id="diseaseFilter">
+                  <option value="all">All diseases</option>
+                </select>
+              </div>
             </div>
-            <div class="map-filters">
-              <select id="sourceFilter">
-                <option value="all">All source families</option>
-              </select>
-              <select id="severityFilter">
-                <option value="all">All severities</option>
-                <option value="high">High</option>
-                <option value="elevated">Elevated</option>
-                <option value="guarded">Guarded</option>
-              </select>
-              <select id="diseaseFilter">
-                <option value="all">All diseases</option>
-              </select>
-            </div>
-          </div>
-          <div id="map"></div>
-          <p class="map-note">
-            The map currently overlays live MOH, WHO, Kenya Red Cross, CDC, and KEMRI linked signals when available. Precision labels are shown when a signal is broader than ward level.
-          </p>
-        </section>
+            <div id="map"></div>
+            <p class="map-note">
+              The operational map shows currently reachable source signals. Point overlays may reflect broader reporting levels when ward-level precision is not available.
+            </p>
+          </section>
 
-        <section class="panel timeline-panel">
-          <div class="panel-heading">
-            <div>
-              <p class="panel-label">What changed today</p>
-              <h2>Latest reachable updates and advisories</h2>
-            </div>
-          </div>
-          <div id="timeline" class="timeline-list"></div>
-        </section>
+          <section class="two-up">
+            <section class="panel timeline-panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="panel-label">Update Feed</p>
+                  <h2>Recent reachable updates</h2>
+                </div>
+              </div>
+              <div id="timeline" class="timeline-list"></div>
+            </section>
 
-        <section class="panel guidance-panel">
-          <div class="panel-heading">
-            <div>
-              <p class="panel-label">Localized guidance</p>
-              <h2>Recommended actions for this location</h2>
-            </div>
-          </div>
-          <div id="guidanceCards" class="card-stack"></div>
-        </section>
+            <section class="panel guidance-panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="panel-label">Action Brief</p>
+                  <h2>Recommended actions for this location</h2>
+                </div>
+              </div>
+              <div id="guidanceCards" class="card-stack"></div>
+            </section>
+          </section>
 
-        <section class="panel disease-panel">
-          <div class="panel-heading">
-            <div>
-              <p class="panel-label">Disease drilldowns</p>
-              <h2>Threat-specific health watch</h2>
-            </div>
-          </div>
-          <div id="diseaseGrid" class="disease-grid"></div>
-        </section>
+          <section class="two-up">
+            <section class="panel disease-panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="panel-label">Threat Watch</p>
+                  <h2>Disease and signal drilldowns</h2>
+                </div>
+              </div>
+              <div id="diseaseGrid" class="disease-grid"></div>
+            </section>
 
-        <section class="panel facilities-panel">
-          <div class="panel-heading">
-            <div>
-              <p class="panel-label">Nearby health service access</p>
-              <h2>Facility and care access context</h2>
-            </div>
-          </div>
-          <div id="facilityStatus" class="inline-note">Facility registry has not been queried yet. Live registry access may be unavailable.</div>
-          <div id="facilityList" class="card-stack compact"></div>
-        </section>
+            <section class="panel facilities-panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="panel-label">Service Access</p>
+                  <h2>Facility and care access context</h2>
+                </div>
+              </div>
+              <div id="facilityStatus" class="inline-note">Facility registry has not been queried yet. Live registry access may be unavailable.</div>
+              <div id="facilityList" class="card-stack compact"></div>
+            </section>
+          </section>
 
-        <section class="panel bulletin-panel">
-          <div class="panel-heading">
-            <div>
-              <p class="panel-label">Low-bandwidth bulletin</p>
-              <h2>Copy-ready field summary</h2>
-            </div>
-          </div>
-          <article id="bulletinContent" class="bulletin"></article>
-        </section>
+          <section class="two-up">
+            <section class="panel bulletin-panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="panel-label">Field Bulletin</p>
+                  <h2>Copy-ready text summary</h2>
+                </div>
+              </div>
+              <article id="bulletinContent" class="bulletin"></article>
+            </section>
 
-        <section class="panel reporting-panel">
-          <div class="panel-heading">
-            <div>
-              <p class="panel-label">Community reporting intake</p>
-              <h2>Capture local observations safely</h2>
-            </div>
-          </div>
-          <form id="reportForm" class="report-form">
-            <label>
-              Reporter role
-              <select name="role">
-                <option value="CHV">CHV</option>
-                <option value="County team">County team</option>
-                <option value="Facility staff">Facility staff</option>
-                <option value="Resident">Resident</option>
-              </select>
-            </label>
-            <label>
-              Report type
-              <select name="reportType">
-                <option value="symptom-cluster">Symptom cluster</option>
-                <option value="water-safety">Water safety issue</option>
-                <option value="facility-stockout">Facility stockout</option>
-                <option value="environmental-hazard">Environmental hazard</option>
-              </select>
-            </label>
-            <label>
-              Observation
-              <textarea name="description" rows="4" placeholder="Describe what was observed. This will be stored locally in the browser for demo purposes."></textarea>
-            </label>
-            <button class="primary-button" type="submit">Save local report</button>
-          </form>
-          <div id="reportList" class="card-stack compact"></div>
-        </section>
-
-        <section class="panel sources-panel">
-          <div class="panel-heading">
-            <div>
-              <p class="panel-label">Source traceability</p>
-              <h2>Current live adapter and source-health status</h2>
-            </div>
-          </div>
-          <div id="sourceStatus" class="card-stack compact"></div>
+            <section class="panel reporting-panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="panel-label">Community Intake</p>
+                  <h2>Local field observations</h2>
+                </div>
+              </div>
+              <form id="reportForm" class="report-form">
+                <label>
+                  Reporter role
+                  <select name="role">
+                    <option value="CHV">CHV</option>
+                    <option value="County team">County team</option>
+                    <option value="Facility staff">Facility staff</option>
+                    <option value="Resident">Resident</option>
+                  </select>
+                </label>
+                <label>
+                  Report type
+                  <select name="reportType">
+                    <option value="symptom-cluster">Symptom cluster</option>
+                    <option value="water-safety">Water safety issue</option>
+                    <option value="facility-stockout">Facility stockout</option>
+                    <option value="environmental-hazard">Environmental hazard</option>
+                  </select>
+                </label>
+                <label>
+                  Observation
+                  <textarea name="description" rows="4" placeholder="Describe what was observed. This will be stored locally in the browser for demo purposes."></textarea>
+                </label>
+                <button class="primary-button" type="submit">Save local report</button>
+              </form>
+              <div id="reportList" class="card-stack compact"></div>
+            </section>
+          </section>
         </section>
       </main>
     </div>
