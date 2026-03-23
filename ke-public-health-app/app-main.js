@@ -192,6 +192,14 @@ function renderGuidance(cards) {
       </div>
       <ul class="detail-list">${card.actions.map((action) => `<li>${action}</li>`).join("")}</ul>
       <p class="stack-meta">Source type: ${card.sourceType}</p>
+      ${
+        card.note
+          ? `<div class="guidance-explainer">
+              <p class="guidance-explainer-label">Why this guidance?</p>
+              <p class="guidance-explainer-body">${card.note}</p>
+            </div>`
+          : ""
+      }
     `;
     elements.guidanceCards.append(node);
   });

@@ -355,6 +355,28 @@ button {
   font-size: 0.95rem;
 }
 
+.guidance-explainer {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(13, 140, 108, 0.09), rgba(227, 244, 241, 0.78));
+  border: 1px solid rgba(13, 140, 108, 0.16);
+}
+
+.guidance-explainer-label {
+  margin: 0 0 8px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--brand-deep);
+}
+
+.guidance-explainer-body {
+  margin: 0;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
 .bulletin-mode .dashboard-grid > :not(.bulletin-panel):not(.summary-panel) {
   opacity: 0.32;
 }

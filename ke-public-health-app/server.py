@@ -785,15 +785,74 @@ def search_facilities(county: str, query: str | None = None):
     }
 
 
-def build_local_guidance(selected_location: dict, alerts: list[dict]):
+def build_local_guidance(selected_location: dict, location_alerts: list[dict], display_alerts: list[dict]):
     disease_map = {}
-    for alert in alerts:
+    for alert in location_alerts:
         disease = alert.get("disease")
         if disease in DISEASE_GUIDANCE:
             disease_map[disease] = DISEASE_GUIDANCE[disease]
 
     if not disease_map:
-        disease_map["malaria"] = DISEASE_GUIDANCE["malaria"]
+        source_families = sorted({alert.get("sourceFamily") for alert in display_alerts if alert.get("sourceFamily")})
+        matched_families = sorted({alert.get("sourceFamily") for alert in location_alerts if alert.get("sourceFamily")})
+        county_found = any(alert.get("sourceFamily") == "County Government" for alert in location_alerts)
+        outbreak_like = [
+            alert
+            for alert in location_alerts
+            if alert.get("severity") in {"high", "elevated"}
+            or any(
+                token in " ".join(filter(None, [alert.get("title"), alert.get("summary")])).lower()
+                for token in ["outbreak", "cholera", "mpox", "measles", "ebola", "cluster", "emergency", "surveillance"]
+            )
+        ]
+        moh_count = sum(1 for alert in location_alerts if alert.get("sourceFamily") == "MOH")
+        who_count = sum(1 for alert in location_alerts if alert.get("sourceFamily") == "WHO")
+        science_count = sum(
+            1 for alert in location_alerts if alert.get("sourceFamily") in {"CDC", "KEMRI"}
+        )
+
+        actions = []
+        note_parts = []
+
+        if county_found:
+            actions.append("Check county-government notices first for location-specific service changes, campaigns, or local public health instructions.")
+            note_parts.append("county-government signals found")
+
+        if moh_count >= max(who_count, science_count, 1):
+            actions.append("Prioritize MOH and county guidance for actions in this area because current local context is driven mostly by government-source notices.")
+            note_parts.append("MOH-led context")
+        elif who_count > max(moh_count, science_count):
+            actions.append("Treat the current picture as WHO-led regional or national context and confirm any local action through MOH or county channels before acting.")
+            note_parts.append("WHO-led context")
+        elif science_count > 0:
+            actions.append("Use CDC and KEMRI items mainly as surveillance or scientific context and wait for MOH or county instructions for location-specific action.")
+            note_parts.append("CDC/KEMRI-led context")
+
+        if outbreak_like:
+            actions.append("Current matched signals look more outbreak-like than routine notices, so monitor official updates closely and escalate quickly if local symptoms or clusters are present.")
+            note_parts.append("outbreak-like matched signals")
+        elif location_alerts:
+            actions.append("Current matched signals look more like general health notices than named outbreaks, so keep monitoring source updates and routine prevention guidance.")
+            note_parts.append("general matched notices")
+        else:
+            actions.append("No live alert directly named this selected location during the latest fetch, so use this as situational awareness rather than a confirmed local outbreak status.")
+            note_parts.append("no direct location match")
+
+        actions.append("If urgent symptoms, unusual clusters, or severe illness are present locally, seek care or contact official health services promptly.")
+
+        return [
+            {
+                "disease": "General local guidance",
+                "scope": selected_location["label"],
+                "actions": actions,
+                "sourceType": "fallback guidance because no disease-specific alerts matched this location directly",
+                "note": (
+                    f"Matched source context: {', '.join(matched_families) if matched_families else 'none'} | "
+                    f"Display sources: {', '.join(source_families) if source_families else 'none'} | "
+                    f"Assessment: {', '.join(note_parts)}"
+                ),
+            }
+        ]
 
     guidance_cards = []
     for disease, record in disease_map.items():
@@ -1103,7 +1162,7 @@ def build_live_payload(county: str, sub_county: str, ward: str):
         limit=16,
     )
 
-    guidance = build_local_guidance(location, filtered_alerts)
+    guidance = build_local_guidance(location, location_matched_alerts, filtered_alerts)
     risk = build_risk_summary(location, filtered_alerts, facilities)
 
     return {
